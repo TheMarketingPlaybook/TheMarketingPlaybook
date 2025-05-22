@@ -1,0 +1,55 @@
+/* Global Styles */
+body {
+    margin:0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #222;   
+}
+
+/* Navbar Styles */
+nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #0070f3;
+}
+
+/* Hero Header */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    color: white;
+}
+
+.title {
+    font-size: 3rem;
+    letter-spacing: 1px;;
+}
+
+.title em strong {
+    font-style: italic;
+    font-weight: bold;
+    color: #00ffd5;
+}
