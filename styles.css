@@ -53,3 +53,15 @@ nav {
     font-weight: bold;
     color: #00ffd5;
 }
+
+.pane-img {
+    width: 220px;
+    border-radius: 12px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.pane-img:hover { 
+    transform: scale(1.05);
+}
