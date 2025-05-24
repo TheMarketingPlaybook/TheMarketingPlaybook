@@ -79,14 +79,23 @@ nav {
 
 /* MEW: Center pane gets a slight zoom effect */
 .pane:nth-child(2) {
-  transform: scale(1.1);
+  transform: scale(1.5);
   z-index: 2;
 }
 
+.pane:nth-child(1) {
+  transform: rotateY(10deg);
+  z-index: 1;
+}
+
+.pane:nth-child(3) {
+  transform: rotateY(-10deg);
+  z-index: 1;
+}
+
 .pane {
-  flex: 0 0 30%;
-  max-width: 30%;
-  aspect-ratio: 1 / 1.2;
+  flex: 0 0 300px;
+  height: 450px;
   background-color: #222;
   border-radius: 20px;
   padding: 2rem;
@@ -96,7 +105,9 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .pane:hover {
