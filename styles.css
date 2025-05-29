@@ -12,11 +12,19 @@ html, body {
 
 /* Navbar Styles */
 nav {
-    background-color: #ffffff;
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: #107C10;    /* Xbox green */
+  border-bottom: 1px solid #0E6B0E;  /* a slightly darker green for contrast */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar a {
+  color: #fff;                  /* white links for readability */
+}
+
+.navbar a:hover {
+  color: #d1ffd1;               /* light green on hover */
 }
 
 .navbar {
