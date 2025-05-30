@@ -1,49 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE Marketing Playbook</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE Marketing Playbook</title>
+  <!-- Swiper CSS for Coverflow Effect -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav>
-        <ul class="navbar">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#aboutme">About Me</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#blog">The Blog</a></li>
-            <li><a href="#contact">Contact Me</a></li>
-        </ul>
-    </nav>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#aboutme">About Me</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#blog">The Blog</a></li>
+      <li><a href="#contact">Contact Me</a></li>
+    </ul>
+  </nav>
 
-    <!-- Header Section -->
-     <header class="hero">
-        <h1 class="title">THE <em><strong>Marketing Playbook</strong></em></h1>
-     </header>
-    
-    <!-- Rotunda -->
-    <section class="rotunda">
-        <div class="carousel">
-            <div class="pane about">
-                <h2>About Me</h2>
-                <p>A creative marketer focused on strategy, storytelling, and results.</p>
-                <img src="assets/headshot.jpg" alt="Todd Dearborn" class="pane-img">
-            </div>
+  <!-- Header Section -->
+  <header class="hero">
+    <h1 class="title">THE <em><strong>Marketing Playbook</strong></em></h1>
+  </header>
 
-            <div class="pane work">
-                <h2>My Portfolio</h2>
-                <p>Explore my digital marketing projects</p>
-                <img src="assets/portfolio.jpg" alt="Portfolio" class="pane-img">
-            </div>
+  <!-- Rotunda / Swiper Container -->
+  <section class="rotunda swiper-container">
+    <div class="swiper-wrapper carousel">
+      <div class="swiper-slide pane about">
+        <h2>About Me</h2>
+        <p>A creative marketer focused on strategy, storytelling, and results.</p>
+        <img src="assets/headshot.jpg" alt="Todd Dearborn" class="pane-img" />
+      </div>
 
-            <div class="pane blog">
-                <h2>The Blog</h2>
-                <p>Interesting insights in marketing</p>
-                <img src="assets/blog.jpeg" alt="Blog" class="pane-img">
-            </div>
-        </div>
-    </section>
+      <div class="swiper-slide pane work">
+        <h2>My Portfolio</h2>
+        <p>Explore my digital marketing projects</p>
+        <img src="assets/portfolio.jpg" alt="Portfolio" class="pane-img" />
+      </div>
+
+      <div class="swiper-slide pane blog">
+        <h2>The Blog</h2>
+        <p>Interesting insights in marketing</p>
+        <img src="assets/blog.jpeg" alt="Blog" class="pane-img" />
+      </div>
+    </div>
+    <!-- Optional Swiper Controls -->
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </section>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 30,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
 </body>
 </html>
