@@ -150,3 +150,37 @@ nav {
   width: 280px !important;
   height: 450px !important;
 }
+/* 1. Make each pane bigger */
+.pane {
+  flex: 0 0 350px;      /* wider panes */
+  height: 600px;        /* taller panes */
+}
+
+/* 2. Constrain pane images */
+.pane-img {
+  width: 80%;           /* narrower than pane width */
+  max-height: 50%;      /* at most half the pane height */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+/* 3. Increase text size inside panes */
+.pane h2 {
+  font-size: 2rem;      /* bigger headings */
+  margin-bottom: 0.5rem;
+}
+
+.pane p {
+  font-size: 1.2rem;    /* larger body copy */
+  line-height: 1.4;
+}
+
+/* 4. (Optional) Center content if you want more white space */
+.pane {
+  align-items: center;  /* horizontal centering */
+  justify-content: center; /* vertical centering */
+  text-align: center;
+  padding: 2rem;        /* adjust padding if needed */
+}
