@@ -160,3 +160,21 @@ nav {
   width: 60vw !important;
   height: 70vh !important;
 }
+/* General pane-image defaults (for work/blog) */
+.pane-img {
+  width: 70%;
+  max-height: 50%;
+  object-fit: cover;         /* crops to fill */
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+/* Override for About Me pane’s headshot */
+.pane.about .pane-img {
+  width: auto;               /* let height drive sizing */
+  max-width: 60%;            /* don’t get too wide */
+  height: auto;
+  max-height: 70%;           /* fits better in the taller pane */
+  object-fit: contain;       /* show entire image */
+  margin-bottom: 2rem;
+}
