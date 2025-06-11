@@ -157,7 +157,7 @@ nav {
 /* Nudge only the About-Me headshot up inside its pane */
 .pane.about .pane-img {
   position: relative;
-  top: -75px;    /* move up 20px; tweak this value to your taste */
+  top: -500px;    /* move up 20px; tweak this value to your taste */
 }
 
 /* Mobile Responsiveness */
