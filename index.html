@@ -28,24 +28,40 @@
   <!-- Rotunda / Swiper Container -->
   <section class="rotunda swiper-container">
     <div class="swiper-wrapper carousel">
-      <div class="swiper-slide pane about">
-        <h2>About Todd</h2>
-        <p>I use strategic marketing, bold storytelling to deliver results.</p>
-        <img src="assets/headshot.jpg" alt="Todd Dearborn" class="pane-img" />
+      <!-- About Pane -->
+      <div 
+        class="swiper-slide pane about" 
+        style="background-image:url('assets/headshot.jpg')"
+      >
+        <div class="pane-content">
+          <h2>About Todd</h2>
+          <p>I use strategic marketing and bold storytelling to deliver results.</p>
+        </div>
       </div>
 
-      <div class="swiper-slide pane work">
-        <h2>My Portfolio</h2>
-        <p>Explore my digital marketing projects, let's get in touch!</p>
-        <img src="assets/portfolio.jpg" alt="Portfolio" class="pane-img" />
+      <!-- Portfolio Pane -->
+      <div 
+        class="swiper-slide pane work" 
+        style="background-image:url('assets/portfolio.jpg')"
+      >
+        <div class="pane-content">
+          <h2>My Portfolio</h2>
+          <p>Explore my digital marketing projects—let’s get in touch!</p>
+        </div>
       </div>
 
-      <div class="swiper-slide pane blog">
-        <h2>The Blog</h2>
-        <p>A marketers insights from Mattress Mack to Pirates inventing modern game theory.</p>
-        <img src="assets/blog.jpeg" alt="Blog" class="pane-img" />
+      <!-- Blog Pane -->
+      <div 
+        class="swiper-slide pane blog" 
+        style="background-image:url('assets/blog.jpeg')"
+      >
+        <div class="pane-content">
+          <h2>The Blog</h2>
+          <p>From Mattress Mack to Pirates: marketing insights & game theory.</p>
+        </div>
       </div>
     </div>
+
     <!-- Optional Swiper Controls -->
     <div class="swiper-pagination"></div>
     <div class="swiper-button-prev"></div>
@@ -67,10 +83,7 @@
         modifier: 1,
         slideShadows: true,
       },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
+      pagination: { el: '.swiper-pagination', clickable: true },
       navigation: {
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
