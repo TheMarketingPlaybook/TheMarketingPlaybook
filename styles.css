@@ -154,6 +154,12 @@ nav {
   margin-bottom: 2rem;
 }
 
+/* Nudge only the About-Me headshot up inside its pane */
+.pane.about .pane-img {
+  position: relative;
+  top: -20px;    /* move up 20px; tweak this value to your taste */
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .carousel {
