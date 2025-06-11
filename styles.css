@@ -157,9 +157,19 @@ nav {
 /* Nudge only the About-Me headshot up inside its pane */
 .pane.about .pane-img {
   position: relative;
-  top: -500px;    /* move up 20px; tweak this value to your taste */
+  top: -30px;    /* move up 20px; tweak this value to your taste */
+}
+/* Hide the old <img> so it doesn’t overlap */
+.pane.about .pane-img {
+  display: none;
 }
 
+/* Use the pane itself as the headshot background */
+.pane.about {
+  background-size: contain !important;       /* zoom out to show full portrait */
+  background-position: top center !important;/* nudge the image up—tweak as needed */
+  background-repeat: no-repeat;
+}
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
   .carousel {
