@@ -74,8 +74,8 @@ nav {
 
 /* Pane styles – scaled to dominate the viewport */
 .pane {
-  flex: 0 0 40vw;           /* 60% of viewport width */
-  height: 50vh;             /* 70% of viewport height */
+  flex: 0 0 20vw;           /* 60% of viewport width */
+  height: 35vh;             /* 70% of viewport height */
   background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
   backdrop-filter: blur(3px);
   border-radius: 20px;
