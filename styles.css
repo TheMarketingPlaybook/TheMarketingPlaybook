@@ -45,7 +45,7 @@ nav {
 /* Hero Header */
 .hero {
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: 2.5rem 1rem 1rem 1rem;
   background: transparent;
   color: white;
 }
