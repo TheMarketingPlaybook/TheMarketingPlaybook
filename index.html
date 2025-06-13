@@ -15,7 +15,7 @@
   <nav>
   <ul class="navbar-container">
     <li><a href="#home">Home</a></li>
-    <li><a href="#aboutme">About Me</a></li>
+    <li><a href="#abouttodd">About Todd</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#blog">The Blog</a></li>
     <li><a href="#contact">Contact Me</a></li>
@@ -40,9 +40,8 @@
 
       <!-- Blog Pane -->
       <div 
-        class="swiper-slide pane blog" 
-        style="background-image:url('assets/blog.jpeg')"
-      >
+        class="swiper-slide pane blog" data-target="#blog"
+        style="background-image:url('assets/blog.jpeg')">
         <div class="pane-content">
           <h2>The Blog</h2>
           <p>Marketing insights from Mattress Mack to Pirate Game Theory.</p>
@@ -51,7 +50,7 @@
 
       <!-- Portfolio Pane -->
       <div 
-        class="swiper-slide pane work" 
+        class="swiper-slide pane work" data-target="#portfolio"
         style="background-image:url('assets/portfolio.jpg')"
       >
         <div class="pane-content">
@@ -62,7 +61,7 @@
 
       <!-- About Pane -->
       <div 
-        class="swiper-slide pane about" 
+        class="swiper-slide pane about" data-target="#abouttodd"
         style="background-image:url('assets/headshot.jpg')"
       >
         <div class="pane-content">
@@ -76,6 +75,25 @@
 
   <!-- Optional Swiper Controls -->
   <div class="swiper-pagination"></div>
+
+  <!-- Blog Section -->
+<section id="blog" class="content-section">
+  <h2>The Blog</h2>
+  <p>Coming soon: thoughts on marketing, memes, and Pirate Game Theory.</p>
+</section>
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="content-section">
+  <h2>My Portfolio</h2>
+  <p>Case studies, creative campaigns, and all the good stuff.</p>
+</section>
+
+<!-- About Me Section -->
+<section id="abouttodd" class="content-section">
+  <h2>About Todd</h2>
+  <p>Storytelling strategist, creative thinker, marketing problem solver.</p>
+</section>
+
 
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
@@ -97,6 +115,17 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+    });
+  </script>
+  <script>
+    // Smooth scroll for panes
+    document.querySelectorAll('.pane').forEach(pane => {
+      pane.addEventListener('click', () => {
+        const target = document.querySelector(pane.dataset.target);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
   </script>
 </body>
