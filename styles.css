@@ -62,7 +62,7 @@ nav {
   align-items: center;
   overflow: hidden;
   perspective: 1000px;
-  background-color: #111;
+  background-color: transparent;
 }
 
 /* Carousel flex container */
@@ -199,4 +199,12 @@ nav {
   transition: transform 0.1s ease-out;
   will-change: transform;
   pointer-events: none;
+}
+/* Force transparency for Swiper and rotunda */
+.rotunda,
+.swiper-container,
+.swiper-wrapper,
+.swiper-slide {
+  background: transparent !important;
+  z-index: 1;
 }
