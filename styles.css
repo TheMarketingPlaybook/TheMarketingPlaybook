@@ -53,25 +53,38 @@ nav {
 .hero-box {
   display: inline-block;
   background: rgba(0, 0, 0, 0.5); /* translucent dark */
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 .title {
-  font-size: 5rem;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 800;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
   margin: 0;
-  text-transform: uppercase;
+  text-align: center;
 }
 
-.title em strong {
-  font-style: normal;
-  font-weight: 700;
+.title em {
+  font-style: italic;
+  font-weight: bold;
   color: #00ffd5;
 }
 
+.title .highlight {
+  font-weight: bold;
+  font-style: normal;
+  color: white;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #ccc;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
 
 /* Rotunda / Carousel Wrapper */
 .rotunda {
