@@ -186,11 +186,16 @@ nav {
 
 .dynamic-bg {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('assets/background.jpg') center center / cover no-repeat;
-  z-index: -1;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -10;
+  opacity: 1;
   transition: transform 0.1s ease-out;
   will-change: transform;
   pointer-events: none;
