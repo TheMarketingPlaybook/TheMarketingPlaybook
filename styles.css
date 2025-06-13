@@ -11,8 +11,7 @@ html, body {
 }
 /* navbar styles*/
 nav {
-  background-color: #7c106a;
-  border-bottom: 1px solid #0E6B0E;
+  background-color: transparent;
   position: sticky;
   top: 0;
   z-index: 1000;
