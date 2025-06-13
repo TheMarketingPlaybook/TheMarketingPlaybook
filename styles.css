@@ -62,7 +62,6 @@ nav {
   align-items: center;
   overflow: hidden;
   perspective: 1000px;
-  background-color: transparent;
 }
 
 /* Carousel flex container */
