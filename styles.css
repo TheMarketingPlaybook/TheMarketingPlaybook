@@ -200,11 +200,3 @@ nav {
   will-change: transform;
   pointer-events: none;
 }
-/* Force transparency for Swiper and rotunda */
-.rotunda,
-.swiper-container,
-.swiper-wrapper,
-.swiper-slide {
-  background: transparent !important;
-  z-index: 1;
-}
