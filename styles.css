@@ -19,15 +19,17 @@ nav {
   justify-content: center;
 }
 
-.navbar-container {
+.navbar {
   display: flex;
   justify-content: center;
   gap: 2rem;
   list-style: none;
-  padding: 0.75rem 1rem;
-  background-color: #dddddd;
+  padding: 1rem 2rem;
+  margin: 1rem auto;
+  background: rgba(0, 0, 0, 0.5);  /* translucent dark background */
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  width: fit-content;
 }
 
 .navbar-container a {
