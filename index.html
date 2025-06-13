@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>THE Marketing Playbook</title>
+
   <!-- Swiper CSS for Coverflow Effect -->
   <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
 
   <!-- Navigation Bar -->
   <nav>
@@ -27,7 +27,7 @@
     <h1 class="title">THE <em><strong>Marketing Playbook</strong></em></h1>
   </header>
 
-  <!-- Dynamic Background Layer -->
+  <!-- 👇 BACKGROUND DIV goes here, *after* the header -->
   <div class="dynamic-bg"></div>
 
   <!-- Rotunda / Swiper Container -->
@@ -68,14 +68,14 @@
       </div>
 
     </div> <!-- end of swiper-wrapper -->
-    
-    <!-- Optional Swiper Controls -->
-    <div class="swiper-pagination"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   </section>
 
-  <!-- Swiper JS + Background Parallax Script -->
+  <!-- Optional Swiper Controls -->
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-prev"></div>
+  <div class="swiper-button-next"></div>
+
+  <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
   <script>
     const swiper = new Swiper('.swiper-container', {
@@ -95,14 +95,6 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
-    });
-
-    // Background movement based on mouse position
-    const bg = document.querySelector('.dynamic-bg');
-    window.addEventListener('mousemove', e => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 10;
-      const y = (e.clientY / window.innerHeight - 0.5) * 10;
-      bg.style.transform = `rotateX(${-y}deg) rotateY(${x}deg) scale(1.03)`;
     });
   </script>
 </body>
