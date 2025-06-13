@@ -107,9 +107,9 @@ nav {
 /* Pane styles – now taller than wide */
 .pane {
   position: relative;
-  flex: 0 0 35vw;            /* 35% of viewport width */
-  width: 35vw !important;
-  height: 80vh !important;    /* 80% of viewport height */
+  flex: 0 0 28vw;            /* 35% of viewport width */
+  width: 28vw !important;
+  height: 70vh !important;    /* 80% of viewport height */
   max-width: 35vw;
   max-height: 80vh;
   background-size: cover;
@@ -212,8 +212,8 @@ nav {
   align-items: center;
 }
 .swiper-slide {
-  width: 35vw !important;
-  height: 80vh !important;
+  width: 28vw !important;
+  height: 70vh !important;
 }
 
 .dynamic-bg {
