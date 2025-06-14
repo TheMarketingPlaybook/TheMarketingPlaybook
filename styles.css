@@ -280,3 +280,27 @@ nav {
   margin: 0 1rem 1.5rem;
   color: #ccc;
 }
+
+.article-container {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+}
+
+.blog-article h2 {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.blog-article p, .blog-article li {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.article-banner {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
