@@ -376,3 +376,13 @@ nav {
 .content-page body {
   background: none;
 }
+
+/* disable all pointer events on the swiper container */
+.swiper-container {
+  pointer-events: none;
+}
+
+/* re-enable them only on the slides themselves */
+.swiper-container .pane {
+  pointer-events: auto;
+}
