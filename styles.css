@@ -365,3 +365,14 @@ nav {
     flex-direction: column;
   }
 }
+
+/* only pages with class="content-page" get this dark charcoal background */
+.content-page {
+  background-color: #1e1e1e;
+}
+
+/* ensure the html element behind it also has no conflicting color */
+.content-page html,
+.content-page body {
+  background: none;
+}
