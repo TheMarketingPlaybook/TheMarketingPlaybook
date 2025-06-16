@@ -388,6 +388,7 @@ nav {
 }
 .portfolio-showcase {
   width: 100%;
+  display: flex;
   /* remove max-height so it can grow naturally */
   justify-content: center;
   margin-bottom: 2rem;
