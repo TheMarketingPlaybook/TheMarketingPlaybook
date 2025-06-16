@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me — The Marketing Playbook</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="content-page">
+  <!-- Navigation Bar -->
+  <nav>
+    <ul class="navbar-container">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="blog.html">The Blog</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About Todd</a></li>
+      <li><a href="contact.html" class="active">Contact Me</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Form -->
+  <main style="max-width:600px; margin:2rem auto; padding:1rem; background:#2a2a2a; border-radius:8px;">
+    <h1 style="color:#fff; text-align:center;">Get in Touch</h1>
+    <form
+      action="https://formspree.io/f/xblyypva"
+      method="POST"
+      style="display:flex; flex-direction:column; gap:1rem;"
+    >
+      <label style="color:#eee;">
+        Name  
+        <input
+          type="text"
+          name="name"
+          required
+          style="width:100%; padding:.5rem; border-radius:4px; border:none;"
+        />
+      </label>
+
+      <label style="color:#eee;">
+        Email  
+        <input
+          type="email"
+          name="_replyto"
+          required
+          style="width:100%; padding:.5rem; border-radius:4px; border:none;"
+        />
+      </label>
+
+      <label style="color:#eee;">
+        Message  
+        <textarea
+          name="message"
+          rows="6"
+          required
+          style="width:100%; padding:.5rem; border-radius:4px; border:none;"
+        ></textarea>
+      </label>
+
+      <!-- Optional: customize your email subject -->
+      <input type="hidden" name="_subject" value="New message from The Marketing Playbook"/>
+
+      <button
+        type="submit"
+        style="padding:.75rem; background:#00ffd5; border:none; border-radius:4px; font-weight:bold; cursor:pointer;"
+      >
+        Send Message
+      </button>
+    </form>
+  </main>
+</body>
+</html>
