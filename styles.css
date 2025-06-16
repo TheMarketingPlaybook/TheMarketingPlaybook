@@ -393,7 +393,7 @@ nav {
 }
 
 .showcase-video {
-  width: 100%;
+  width: 50%;
   height: auto;          /* let height scale to maintain aspect ratio */
   object-fit: contain;   /* show the whole frame, no cropping */
   display: block;
