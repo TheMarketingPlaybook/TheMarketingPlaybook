@@ -401,3 +401,40 @@ nav {
   display: block;
 }
 
+.stage-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000; /* base fill */
+  overflow: hidden;
+}
+
+/* Outline stays undistorted but blended elegantly */
+.stage-outline,
+.stage-color {
+  position: absolute;
+  inset: 0;
+
+  /* preserve aspect ratio, no distortion */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  /* subtle up-scale without blurring */
+  transform: scale(1.05); /* try 1.03–1.08 depending on desired fill */
+}
+
+/* Add vignette to blend edges */
+.stage-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+      circle,
+      rgba(0,0,0,0) 60%,
+      rgba(0,0,0,0.5) 100%
+  );
+  z-index: 99;
+}
