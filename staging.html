@@ -3,57 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stage Staging</title>
+  <title>The Marketing Playbook – Stage Staging</title>
+
   <style>
-    /* Hard reset for this page */
+    /* Hard reset – this page ignores the rest of your site */
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html,
     body {
       height: 100%;
+      width: 100%;
     }
 
     body {
       background: #000;
-      overflow: hidden;
+      color: #fff;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
         sans-serif;
-      color: #fff;
+      overflow: hidden;
     }
 
+    /* Full-screen container, pinned to the viewport */
     .stage-wrapper {
-      position: fixed; /* ignore any “wrapper” stuff */
+      position: fixed;
       inset: 0;
       background: #000;
       overflow: hidden;
     }
 
-    .stage-outline,
-    .stage-color {
+    /* Base outline layer – always present */
+    .stage-outline {
       position: absolute;
       inset: 0;
+      background-image: url("./assets/Outline_Stage.png");
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      transform: scale(1.05); /* small upscale */
-    }
-
-    .stage-outline {
-      background-image: url("./assets/Outline_Stage.png");
+      transform: scale(1.05); /* tiny upscale so it feels full-screen */
       z-index: 1;
     }
 
+    /* Color layer – swapped via JS */
     .stage-color {
+      position: absolute;
+      inset: 0;
       background-image: url("./assets/Normal_Stage.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: scale(1.05);
       z-index: 2;
       transition: opacity 0.25s ease-out;
     }
 
-    /* Vignette to blend the edges to full screen */
+    /* Vignette to blend the edges to the screen border */
     .stage-wrapper::after {
       content: "";
       position: absolute;
@@ -67,13 +74,14 @@
       z-index: 99;
     }
 
-    /* TEMP buttons to test swaps */
+    /* Temporary controls just so you can preview all stages quickly */
     .controls {
       position: absolute;
-      bottom: 1.5rem;
       left: 50%;
+      bottom: 1.5rem;
       transform: translateX(-50%);
       display: flex;
+      flex-wrap: wrap;
       gap: 0.5rem;
       z-index: 100;
     }
@@ -81,23 +89,31 @@
     .controls button {
       padding: 0.4rem 0.9rem;
       font-size: 0.85rem;
+      border-radius: 999px;
       border: 1px solid #444;
       background: #111;
       color: #eee;
       cursor: pointer;
-      border-radius: 999px;
+      transition: background 0.15s ease-out, transform 0.1s ease-out;
     }
 
     .controls button:hover {
       background: #222;
+      transform: translateY(-1px);
+    }
+
+    .controls button:active {
+      transform: translateY(0);
     }
   </style>
 </head>
+
 <body>
   <div class="stage-wrapper">
     <div class="stage-outline"></div>
     <div class="stage-color" id="stageColor"></div>
 
+    <!-- TEMP: stage swapper for testing -->
     <div class="controls">
       <button data-stage="Normal_Stage.png">Normal</button>
       <button data-stage="Cyan_Stage.png">Cyan</button>
@@ -114,8 +130,11 @@
     buttons.forEach((btn) => {
       btn.addEventListener("click", () => {
         const fileName = btn.getAttribute("data-stage");
+
+        // fade out
         stageColor.style.opacity = 0;
 
+        // swap background after short delay, then fade in
         setTimeout(() => {
           stageColor.style.backgroundImage = `url("./assets/${fileName}")`;
           stageColor.style.opacity = 1;
