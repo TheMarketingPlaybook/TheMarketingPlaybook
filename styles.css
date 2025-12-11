@@ -1,402 +1,105 @@
-/* Global Styles */
-html, body {
+/* ========== Global reset ========== */
+* {
   margin: 0;
   padding: 0;
-  width: 100%;
+  box-sizing: border-box;
+}
+
+html,
+body {
   height: 100%;
-  overflow-x: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: transparent;
-  color: #222;
-}
-/* navbar styles*/
-nav {
-  background-color: transparent;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-}
-
-.navbar-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  padding: 0.75rem 1rem;
-  background: rgba(0, 0, 0, 0.5);  /* translucent dark background */
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-container a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.navbar-container a:hover {
-  color: #00ffd5;
-}
-
-
-/* Hero Header */
-.hero {
-  text-align: center;
-  padding: 2.5rem 1rem 1rem 1rem;
-  background: transparent;
-  color: white;
-}
-
-.hero-box {
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.5); /* translucent dark */
-  padding: 1rem 1rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-}
-
-.title {
-  font-size: 4.5rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0;
-  text-align: center;
-}
-
-.title em {
-  font-style: italic;
-  font-weight: bold;
-  color: #00ffd5;
-}
-
-.title .highlight {
-  font-weight: bold;
-  font-style: normal;
-  color: white;
-}
-
-.subtitle {
-  font-size: 2.5rem;
-  color: #ccc;
-  text-align: center;
-  margin-top: 0.5rem;
-  font-style: italic;
-}
-
-/* Rotunda / Carousel Wrapper */
-.rotunda {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   overflow: hidden;
-  perspective: 1000px;
 }
 
-/* Carousel flex container */
-.carousel {
-  display: flex;
-  gap: 1rem;
-  transition: transform 0.5s ease;
+/* ========== Full-screen stage wrapper ========== */
+.stage-wrapper {
+  position: fixed;          /* Pin to viewport */
+  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+  background: #000;
+  overflow: hidden;
 }
 
-/* Pane styles – now taller than wide */
-.pane {
-  position: relative;
-  flex: 0 0 28vw;            /* 35% of viewport width */
-  width: 28vw !important;
-  height: 70vh !important;    /* 80% of viewport height */
-  max-width: 35vw;
-  max-height: 80vh;
-  background-size: cover;
+/* Shared properties for both stage layers */
+.stage-outline,
+.stage-color {
+  position: absolute;
+  inset: 0;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+  /*
+    Option A (no distortion, may have some letterboxing):
+    background-size: contain;
+    transform: scale(1.06);
+
+    Option B (true border-to-border, can crop a bit):
+  */
+  background-size: cover;
 }
 
-/* Semi-opaque content box for text */
-.pane-content {
-  background: rgba(0, 0, 0, 0.6);
-  padding: 1.5rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-  max-width: 80%;
-  text-align: center;
+/* Base outline – always visible */
+.stage-outline {
+  background-image: url("./assets/Outline_Stage.png");
   z-index: 1;
-}
-.pane-content h2 {
-  margin: 0 0 0.5rem;
-  font-size: 2.5rem;
-}
-.pane-content p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.4;
 }
 
-/* Tilt & scale for coverflow effect (adjusted angles) */
-.pane:nth-child(1) {
-  transform: rotateY(-15deg) scale(0.9);
-  z-index: 1;
-}
-.pane:nth-child(2) {
-  transform: scale(1.15);
+/* Color layer that we swap with JS */
+.stage-color {
+  background-image: url("./assets/Normal_Stage.png");
   z-index: 2;
-}
-.pane:nth-child(3) {
-  transform: rotateY(15deg) scale(0.9);
-  z-index: 1;
+  transition: opacity 0.25s ease-out;
 }
 
-/* Hover brings pane forward */
-.pane:hover {
-  transform: rotateY(0deg) scale(1.4);
-  z-index: 3;
-  box-shadow: 0 14px 50px rgba(0,255,213,0.6);
-}
-
-/* General pane-image defaults (for work/blog) */
-.pane-img {
-  width: 70%;
-  max-height: 50%;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-
-/* Tighter zoom-out for About Me headshot */
-.pane.about .pane-img {
-  width: 40%;
-  max-width: 40%;
-  height: auto;
-  max-height: 60%;
-  object-fit: contain;
-  object-position: center center;
-  margin-bottom: 2rem;
-}
-
-/* Mobile Responsiveness */
-@media (max-width: 768px) {
-  .carousel {
-    flex-direction: column;
-    align-items: center;
-  }
-  .pane {
-    flex: 1 0 auto;
-    width: 90%;
-    transform: none !important;
-  }
-  .pane-content {
-    max-width: 100%;
-  }
-}
-
-/* Swiper Overrides (if using Swiper) */
-.swiper-container {
-  width: 100%;
-  height: 100vh;
-}
-.swiper-wrapper {
-  display: flex;
-  align-items: center;
-}
-.swiper-slide {
-  width: 28vw !important;
-  height: 70vh !important;
-}
-
-.dynamic-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('assets/background.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: -10;
-  opacity: 1;
-  transition: transform 0.1s ease-out;
-  will-change: transform;
+/* Soft vignette to blend edges into the screen border */
+.stage-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
   pointer-events: none;
-}
-.underline-accent {
-  text-decoration: underline;
-  text-decoration-color: #00ffd5;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-}
-
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+  z-index: 99;
 }
 
-.blog-card {
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 16px;
-  overflow: hidden;
-  text-decoration: none;
-  color: #fff;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.blog-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0, 255, 213, 0.4);
-}
-
-.blog-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-}
-
-.blog-card h2 {
-  font-size: 1.5rem;
-  margin: 1rem;
-}
-
-.blog-card p {
-  font-size: 1rem;
-  margin: 0 1rem 1.5rem;
-  color: #ccc;
-}
-
-.article-container {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 2rem;
-}
-
-.blog-article h2 {
-  font-size: 2rem;
-  margin-top: 2rem;
-}
-
-.blog-article p, .blog-article li {
-  font-size: 1.125rem;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.article-banner {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 2rem;
-}
-
-/* ARTICLE BASE */
-.article-container {
-  max-width: 800px;
-  margin: 5rem auto;
-  padding: 2.5rem;
-  background-color: #2e2e2e;
-  color: #f2f2f2;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-  line-height: 1.7;
-  font-size: 1.1rem;
-}
-
-.article-container h1,
-.article-container h2,
-.article-container h3 {
-  color: #ffffff;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.3;
-  text-align: center;
-}
-
-.article-container p {
-  margin: 1rem 0;
-  text-align: justify;
-}
-
-/* QUOTES */
-.article-container blockquote {
-  font-style: italic;
-  color: #cccccc;
-  border-left: 4px solid #00ffd5;
-  padding-left: 1rem;
-  margin: 2rem 0;
-}
-
-/* IMAGE MOSAIC */
-.mosaic {
+/* ========== Temporary controls ========== */
+.controls {
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
   display: flex;
-  gap: 1rem;
-  margin: 2rem 0;
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  z-index: 100;
 }
 
-.mosaic img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  flex: 1;
+.controls button {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  border: 1px solid #444;
+  background: #111;
+  color: #eee;
+  cursor: pointer;
+  transition: background 0.15s ease-out, transform 0.1s ease-out;
 }
 
-/* For 2-image and 3-image mosaic responsiveness */
-@media (max-width: 768px) {
-  .mosaic {
-    flex-direction: column;
-  }
+.controls button:hover {
+  background: #222;
+  transform: translateY(-1px);
 }
 
-/* only pages with class="content-page" get this dark charcoal background */
-.content-page {
-  background-color: #1e1e1e;
-}
-
-/* ensure the html element behind it also has no conflicting color */
-.content-page html,
-.content-page body {
-  background: none;
-}
-
-/* disable all pointer events on the swiper container */
-.swiper-container {
-  pointer-events: none;
-}
-
-/* re-enable them only on the slides themselves */
-.swiper-container .pane {
-  pointer-events: auto;
-}
-.portfolio-showcase {
-  width: 100%;
-  display: flex;
-  /* remove max-height so it can grow naturally */
-  justify-content: center;
-  margin-bottom: 2rem;
-}
-
-.showcase-video {
-  width: 50%;
-  height: auto;          /* let height scale to maintain aspect ratio */
-  object-fit: contain;   /* show the whole frame, no cropping */
-  display: block;
+.controls button:active {
+  transform: translateY(0);
 }
