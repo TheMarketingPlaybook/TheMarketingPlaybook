@@ -5,10 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stage Staging</title>
   <style>
+    /* Hard reset for this page */
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html,
+    body {
+      height: 100%;
     }
 
     body {
@@ -20,29 +26,48 @@
     }
 
     .stage-wrapper {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    /* Outline is permanent base layer */
-    .stage-outline {
-      position: absolute;
+      position: fixed; /* ignore any “wrapper” stuff */
       inset: 0;
-      background: url("./assets/Outline_Stage.png") center/contain no-repeat;
-      z-index: 1;
+      background: #000;
+      overflow: hidden;
     }
 
-    /* Color stage sits on top and can be swapped */
+    .stage-outline,
     .stage-color {
       position: absolute;
       inset: 0;
-      background: url("./assets/Normal_Stage.png") center/contain no-repeat;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: scale(1.05); /* small upscale */
+    }
+
+    .stage-outline {
+      background-image: url("./assets/Outline_Stage.png");
+      z-index: 1;
+    }
+
+    .stage-color {
+      background-image: url("./assets/Normal_Stage.png");
       z-index: 2;
       transition: opacity 0.25s ease-out;
     }
 
-    /* Just for quick testing – a tiny control panel */
+    /* Vignette to blend the edges to full screen */
+    .stage-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(
+        circle,
+        rgba(0, 0, 0, 0) 60%,
+        rgba(0, 0, 0, 0.55) 100%
+      );
+      z-index: 99;
+    }
+
+    /* TEMP buttons to test swaps */
     .controls {
       position: absolute;
       bottom: 1.5rem;
@@ -50,7 +75,7 @@
       transform: translateX(-50%);
       display: flex;
       gap: 0.5rem;
-      z-index: 3;
+      z-index: 100;
     }
 
     .controls button {
@@ -73,7 +98,6 @@
     <div class="stage-outline"></div>
     <div class="stage-color" id="stageColor"></div>
 
-    <!-- TEMP: buttons just to preview different PNGs -->
     <div class="controls">
       <button data-stage="Normal_Stage.png">Normal</button>
       <button data-stage="Cyan_Stage.png">Cyan</button>
@@ -92,7 +116,6 @@
         const fileName = btn.getAttribute("data-stage");
         stageColor.style.opacity = 0;
 
-        // quick fade swap
         setTimeout(() => {
           stageColor.style.backgroundImage = `url("./assets/${fileName}")`;
           stageColor.style.opacity = 1;
