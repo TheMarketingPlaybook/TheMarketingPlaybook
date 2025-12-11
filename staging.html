@@ -1,1 +1,104 @@
-<link rel="icon" href="assets/Outline_Stage.png" type="image/png">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage Staging</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #000;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      color: #fff;
+    }
+
+    .stage-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    /* Outline is permanent base layer */
+    .stage-outline {
+      position: absolute;
+      inset: 0;
+      background: url("./assets/Outline_Stage.png") center/contain no-repeat;
+      z-index: 1;
+    }
+
+    /* Color stage sits on top and can be swapped */
+    .stage-color {
+      position: absolute;
+      inset: 0;
+      background: url("./assets/Normal_Stage.png") center/contain no-repeat;
+      z-index: 2;
+      transition: opacity 0.25s ease-out;
+    }
+
+    /* Just for quick testing – a tiny control panel */
+    .controls {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 3;
+    }
+
+    .controls button {
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      border: 1px solid #444;
+      background: #111;
+      color: #eee;
+      cursor: pointer;
+      border-radius: 999px;
+    }
+
+    .controls button:hover {
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <div class="stage-wrapper">
+    <div class="stage-outline"></div>
+    <div class="stage-color" id="stageColor"></div>
+
+    <!-- TEMP: buttons just to preview different PNGs -->
+    <div class="controls">
+      <button data-stage="Normal_Stage.png">Normal</button>
+      <button data-stage="Cyan_Stage.png">Cyan</button>
+      <button data-stage="Gold_Stage.png">Gold</button>
+      <button data-stage="Green_Stage.png">Green</button>
+      <button data-stage="Purple_Stage.png">Purple</button>
+    </div>
+  </div>
+
+  <script>
+    const stageColor = document.getElementById("stageColor");
+    const buttons = document.querySelectorAll(".controls button");
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const fileName = btn.getAttribute("data-stage");
+        stageColor.style.opacity = 0;
+
+        // quick fade swap
+        setTimeout(() => {
+          stageColor.style.backgroundImage = `url("./assets/${fileName}")`;
+          stageColor.style.opacity = 1;
+        }, 150);
+      });
+    });
+  </script>
+</body>
+</html>
