@@ -139,37 +139,38 @@ body {
 
 
 
-/* Analytics switch hit area */
+/* Analytics */
 .switch.analytics {
-  left: 80px;   /* was 40 */
-  top: 40px;
-  width: 120px;
-  height: 80px;
+  left: 14%;
+  top: 38%;
+  width: 8%;
+  height: 40%;
 }
 
 /* Strategy */
 .switch.strategy {
-  left: 240px;  /* was 200 */
-  top: 40px;
-  width: 120px;
-  height: 80px;
+  left: 30%;
+  top: 38%;
+  width: 8%;
+  height: 40%;
 }
 
 /* Portfolio */
 .switch.portfolio {
-  left: 400px;  /* was 360 */
-  top: 40px;
-  width: 120px;
-  height: 80px;
+  left: 46%;
+  top: 38%;
+  width: 8%;
+  height: 40%;
 }
 
 /* About */
 .switch.about {
-  left: 560px;  /* was 520 */
-  top: 40px;
-  width: 120px;
-  height: 80px;
+  left: 62%;
+  top: 38%;
+  width: 8%;
+  height: 40%;
 }
+
 
 
 .blackout {
