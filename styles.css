@@ -135,7 +135,7 @@ body {
   border: none;
   cursor: pointer;
 
-  transform: translate(80px, 30px); /* X right, Y down — adjust */
+  transform: translate(120px, 45px); /* X right, Y down — adjust */
 }
 
 
