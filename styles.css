@@ -136,8 +136,8 @@ body {
   cursor: pointer;
 }
 
-/* ABOUT switch hit area (tune these) */
-.switch.about {
+/* Analytics switch hit area (tune these) */
+.switch.analytics {
   left: 40px;
   top: 40px;
   width: 120px;
@@ -145,21 +145,21 @@ body {
 }
 
 /* placeholders */
-.switch.work {
+.switch.strategy {
   left: 200px;
   top: 40px;
   width: 120px;
   height: 80px;
 }
 
-.switch.blog {
+.switch.portfolio {
   left: 360px;
   top: 40px;
   width: 120px;
   height: 80px;
 }
 
-.switch.contact {
+.switch.about {
   left: 520px;
   top: 40px;
   width: 120px;
