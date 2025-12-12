@@ -118,14 +118,15 @@ body {
 .switchboard {
   position: absolute;
   left: 50%;
-  bottom: 0.5vh;
-  transform: translateX(-50%);
+  bottom: 0; /* anchor at the bottom edge */
+  transform: translateX(-50%) translateY(30px); /* push DOWN */
   z-index: 5;
 
   width: min(1600px, 100vw);
-  aspect-ratio: 5 / 1; /* adjust if your PNG ratio differs */
+  aspect-ratio: 5 / 1;
   background: url("./assets/board_about.png") center / contain no-repeat;
 }
+
 
 /* Invisible clickable switches */
 .switch {
