@@ -118,7 +118,7 @@ body {
 .switchboard {
   position: absolute;
   left: 50%;
-  bottom: 1.5vh;
+  bottom: 0.5vh;
   transform: translateX(-50%);
   z-index: 5;
 
