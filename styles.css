@@ -134,10 +134,9 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
-
-  transform: translate(120px, 55px); /* X right, Y down — adjust */
   outline: 1px dashed rgba(0,255,255,0.6);
 }
+
 
 
 /* Analytics switch hit area */
