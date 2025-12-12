@@ -1,4 +1,4 @@
-/* ========== Global reset ========== */
+/* ===== RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -7,99 +7,134 @@
 
 html,
 body {
-  height: 100%;
   width: 100%;
+  height: 100%;
 }
 
 body {
   background: #000;
-  color: #fff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
   overflow: hidden;
+  font-family: system-ui, sans-serif;
 }
 
-/* ========== Full-screen stage wrapper ========== */
+/* ===== STAGE ===== */
 .stage-wrapper {
-  position: fixed;          /* Pin to viewport */
-  inset: 0;                 /* top:0; right:0; bottom:0; left:0 */
+  position: fixed;
+  inset: 0;
   background: #000;
   overflow: hidden;
 }
 
-/* Shared properties for both stage layers */
 .stage-outline,
 .stage-color {
   position: absolute;
   inset: 0;
   background-position: center;
   background-repeat: no-repeat;
-
-  /*
-    Option A (no distortion, may have some letterboxing):
-    background-size: contain;
-    transform: scale(1.06);
-
-    Option B (true border-to-border, can crop a bit):
-  */
   background-size: cover;
 }
 
-/* Base outline – always visible */
 .stage-outline {
   background-image: url("./assets/Outline_Stage.png");
   z-index: 1;
 }
 
-/* Color layer that we swap with JS */
 .stage-color {
   background-image: url("./assets/Normal_Stage.png");
   z-index: 2;
-  transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease;
 }
 
-/* Soft vignette to blend edges into the screen border */
-.stage-wrapper::after {
-  content: "";
+/* ===== CENTER FLOATING ASSET ===== */
+.center-anchor {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 60%,
-    rgba(0, 0, 0, 0.55) 100%
-  );
-  z-index: 99;
-}
-
-/* ========== Temporary controls ========== */
-.controls {
-  position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 1.5rem;
+  transform: translate(-50%, -50%);
+  z-index: 4;
+  pointer-events: none;
+}
+
+.center-float {
+  width: min(280px, 40vw);
+  animation: float 4.5s ease-in-out infinite;
+}
+
+.center-float img {
+  width: 100%;
+  height: auto;
+  animation: spin 18s linear infinite;
+  transition: opacity 0.25s ease;
+  filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.35));
+}
+
+/* Float up/down */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(-12px);
+  }
+  50% {
+    transform: translateY(12px);
+  }
+}
+
+/* Slow rotation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== SWITCHBOARD ===== */
+.switchboard {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
   transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  z-index: 100;
+  width: 800px; /* match your switchboard PNG width */
+  height: 160px; /* match PNG height */
+  background: url("./assets/board_about.png") center/contain no-repeat;
+  z-index: 5;
 }
 
-.controls button {
-  padding: 0.4rem 0.9rem;
-  font-size: 0.85rem;
-  border-radius: 999px;
-  border: 1px solid #444;
-  background: #111;
-  color: #eee;
+/* Invisible clickable switches */
+.switch {
+  position: absolute;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  transition: background 0.15s ease-out, transform 0.1s ease-out;
 }
 
-.controls button:hover {
-  background: #222;
-  transform: translateY(-1px);
+/* ABOUT switch hit area (tune these) */
+.switch.about {
+  left: 40px;
+  top: 40px;
+  width: 120px;
+  height: 80px;
 }
 
-.controls button:active {
-  transform: translateY(0);
+/* placeholders */
+.switch.work {
+  left: 200px;
+  top: 40px;
+  width: 120px;
+  height: 80px;
+}
+
+.switch.blog {
+  left: 360px;
+  top: 40px;
+  width: 120px;
+  height: 80px;
+}
+
+.switch.contact {
+  left: 520px;
+  top: 40px;
+  width: 120px;
+  height: 80px;
 }

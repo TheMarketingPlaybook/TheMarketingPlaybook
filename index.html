@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Marketing Playbook – Stage</title>
 
-  <!-- Fresh CSS file -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -17,29 +16,60 @@
     <!-- Swappable color layer -->
     <div class="stage-color" id="stageColor"></div>
 
-    <!-- TEMP controls to preview different stage colors -->
-    <div class="controls">
-      <button data-stage="Normal_Stage.png">Normal</button>
-      <button data-stage="Cyan_Stage.png">Cyan</button>
-      <button data-stage="Gold_Stage.png">Gold</button>
-      <button data-stage="Green_Stage.png">Green</button>
-      <button data-stage="Purple_Stage.png">Purple</button>
+    <!-- Floating center asset (About, Work, etc.) -->
+    <div class="center-anchor">
+      <div class="center-float">
+        <img
+          id="centerAsset"
+          src="./assets/headshot.png"
+          alt="About Me"
+        />
+      </div>
+    </div>
+
+    <!-- Switchboard -->
+    <div class="switchboard">
+      <!-- ABOUT switch -->
+      <button
+        class="switch about"
+        data-stage="Cyan_Stage.png"
+        data-center="headshot.png"
+      ></button>
+
+      <!-- placeholders for future switches -->
+      <button class="switch work"></button>
+      <button class="switch blog"></button>
+      <button class="switch contact"></button>
     </div>
   </div>
 
   <script>
     const stageColor = document.getElementById("stageColor");
-    const buttons = document.querySelectorAll(".controls button");
+    const centerAsset = document.getElementById("centerAsset");
+    const switches = document.querySelectorAll(".switch");
 
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const fileName = btn.getAttribute("data-stage");
+    switches.forEach((sw) => {
+      sw.addEventListener("click", () => {
+        const stageFile = sw.dataset.stage;
+        const centerFile = sw.dataset.center;
+
+        // fade out
         stageColor.style.opacity = 0;
+        centerAsset.style.opacity = 0;
 
         setTimeout(() => {
-          stageColor.style.backgroundImage = `url("./assets/${fileName}")`;
+          if (stageFile) {
+            stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
+          }
+
+          if (centerFile) {
+            centerAsset.src = `./assets/${centerFile}`;
+          }
+
+          // fade in
           stageColor.style.opacity = 1;
-        }, 120);
+          centerAsset.style.opacity = 1;
+        }, 150);
       });
     });
   </script>
