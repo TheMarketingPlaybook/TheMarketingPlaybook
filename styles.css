@@ -141,32 +141,32 @@ body {
 
 /* Analytics */
 .switch.analytics {
-  left: 14%;
-  top: 41%;
+  left: 28%;
+  top: 34%;
   width: 4%;
   height: 40%;
 }
 
 /* Strategy */
 .switch.strategy {
-  left: 25%;
-  top: 41%;
+  left: 39%;
+  top: 34%;
   width: 4%;
   height: 40%;
 }
 
 /* Portfolio */
 .switch.portfolio {
-  left: 36%;
-  top: 41%;
+  left: 50%;
+  top: 34%;
   width: 4%;
   height: 40%;
 }
 
 /* About */
 .switch.about {
-  left: 47%;
-  top: 41%;
+  left: 61%;
+  top: 34%;
   width: 4%;
   height: 40%;
 }
