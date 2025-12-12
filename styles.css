@@ -92,14 +92,16 @@ body {
 /* ===== SWITCHBOARD ===== */
 .switchboard {
   position: absolute;
-  bottom: 0;
   left: 50%;
+  bottom: 2.5vh;
   transform: translateX(-50%);
-  width: 800px; /* match your switchboard PNG width */
-  height: 160px; /* match PNG height */
-  background: url("./assets/board_about.png") center/contain no-repeat;
   z-index: 5;
+
+  width: min(1200px, 96vw);     /* bigger than before */
+  aspect-ratio: 5 / 1;          /* adjust if your PNG is a different shape */
+  background: url("./assets/board_about.png") center / contain no-repeat;
 }
+
 
 /* Invisible clickable switches */
 .switch {
