@@ -13,62 +13,161 @@
     <!-- Permanent outline/base layer -->
     <div class="stage-outline"></div>
 
-    <!-- Swappable color layer -->
+    <!-- Swappable color layer (starts Normal via CSS) -->
     <div class="stage-color" id="stageColor"></div>
 
-    <!-- Floating center asset (About, Work, etc.) -->
-    <div class="center-anchor">
-        <div class="center-float">
-            <div class="center-revolve">
-                <img id="centerAsset" src="./assets/headshot_stage.png" alt="About Me" />
-             </div>
+    <!-- Theater blackout overlay -->
+    <div class="blackout" id="blackout"></div>
+
+    <!-- Floating center asset (starts hidden) -->
+    <div class="center-anchor" id="centerAnchor" aria-hidden="true">
+      <div class="center-float">
+        <div class="center-revolve">
+          <!-- Make this a button so it’s clickable and accessible -->
+          <button class="center-click" id="centerClick" type="button">
+            <img
+              id="centerAsset"
+              src=""
+              alt=""
+            />
+          </button>
         </div>
+      </div>
     </div>
 
     <!-- Switchboard -->
     <div class="switchboard">
-      <!-- ABOUT switch -->
+      <!-- ABOUT -->
       <button
         class="switch about"
+        type="button"
+        aria-label="About"
+        data-label="About"
         data-stage="Cyan_Stage.png"
         data-center="headshot_stage.png"
+        data-link="about.html"
       ></button>
 
-      <!-- placeholders for future switches -->
-      <button class="switch work"></button>
-      <button class="switch blog"></button>
-      <button class="switch contact"></button>
+      <!-- WORK -->
+      <button
+        class="switch work"
+        type="button"
+        aria-label="Work"
+        data-label="Work"
+        data-stage="Gold_Stage.png"
+        data-center="Center_Work.png"
+        data-link="work.html"
+      ></button>
+
+      <!-- BLOG -->
+      <button
+        class="switch blog"
+        type="button"
+        aria-label="Blog"
+        data-label="Blog"
+        data-stage="Green_Stage.png"
+        data-center="Center_Blog.png"
+        data-link="blog.html"
+      ></button>
+
+      <!-- CONTACT -->
+      <button
+        class="switch contact"
+        type="button"
+        aria-label="Contact"
+        data-label="Contact"
+        data-stage="Purple_Stage.png"
+        data-center="Center_Contact.png"
+        data-link="contact.html"
+      ></button>
     </div>
   </div>
 
   <script>
     const stageColor = document.getElementById("stageColor");
+    const blackout = document.getElementById("blackout");
+
+    const centerAnchor = document.getElementById("centerAnchor");
+    const centerClick = document.getElementById("centerClick");
     const centerAsset = document.getElementById("centerAsset");
+
     const switches = document.querySelectorAll(".switch");
 
+    // State: where should the center asset click go?
+    let activeLink = null;
+    let activeLabel = null;
+
+    // Start with NO floating asset visible
+    function hideCenterAsset() {
+      centerAnchor.style.display = "none";
+      centerAnchor.setAttribute("aria-hidden", "true");
+      centerAsset.src = "";
+      centerAsset.alt = "";
+      activeLink = null;
+      activeLabel = null;
+    }
+
+    // Show center asset with a given PNG + label + link
+    function showCenterAsset(centerFile, label, link) {
+      centerAnchor.style.display = "block";
+      centerAnchor.setAttribute("aria-hidden", "false");
+      centerAsset.src = `./assets/${centerFile}`;
+      centerAsset.alt = label ? `${label}` : "Selected";
+      activeLink = link || null;
+      activeLabel = label || null;
+    }
+
+    // Theater blackout transition:
+    // 1) fade to black quickly
+    // 2) swap assets while black
+    // 3) fade back in
+    function transitionTo(stageFile, centerFile, label, link) {
+      // prevent spam clicks mid-transition
+      switches.forEach(btn => btn.disabled = true);
+
+      blackout.classList.add("is-on");
+
+      // after blackout is fully on, swap assets
+      setTimeout(() => {
+        if (stageFile) {
+          stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
+        }
+
+        if (centerFile) {
+          showCenterAsset(centerFile, label, link);
+        } else {
+          hideCenterAsset();
+        }
+
+        // fade back to scene
+        blackout.classList.remove("is-on");
+
+        // re-enable switches after the fade back
+        setTimeout(() => {
+          switches.forEach(btn => btn.disabled = false);
+        }, 200);
+      }, 180); // time to reach full black
+    }
+
+    // Initial state
+    hideCenterAsset();
+
+    // Clicking a switch triggers transition and sets the activeLink
     switches.forEach((sw) => {
       sw.addEventListener("click", () => {
         const stageFile = sw.dataset.stage;
         const centerFile = sw.dataset.center;
+        const link = sw.dataset.link;
+        const label = sw.dataset.label;
 
-        // fade out
-        stageColor.style.opacity = 0;
-        centerAsset.style.opacity = 0;
-
-        setTimeout(() => {
-          if (stageFile) {
-            stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
-          }
-
-          if (centerFile) {
-            centerAsset.src = `./assets/${centerFile}`;
-          }
-
-          // fade in
-          stageColor.style.opacity = 1;
-          centerAsset.style.opacity = 1;
-        }, 150);
+        transitionTo(stageFile, centerFile, label, link);
       });
+    });
+
+    // Clicking the floating asset navigates to the selected page
+    centerClick.addEventListener("click", () => {
+      if (!activeLink) return;
+      window.location.href = activeLink;
     });
   </script>
 </body>
