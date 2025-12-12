@@ -45,26 +45,45 @@ body {
   transition: opacity 0.25s ease;
 }
 
-/* ===== CENTER FLOATING ASSET ===== */
+/* ===== CENTER ASSET ===== */
+
+/* Nudge the whole center piece DOWN a bit */
 .center-anchor {
   position: absolute;
-  top: 50%;
+  top: calc(50% + 40px); /* adjust to taste */
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
   pointer-events: none;
 }
 
+/* keep your float on this wrapper */
 .center-float {
   width: min(280px, 40vw);
   animation: float 4.5s ease-in-out infinite;
 }
 
-.center-float img {
+/* 3D perspective wrapper */
+.center-revolve {
+  perspective: 900px;              /* lower = stronger 3D, higher = subtler */
+  perspective-origin: 50% 50%;
+}
+
+/* Swivel (no full flip), with shadow pumping at extremes */
+.center-revolve img {
   width: 100%;
   height: auto;
-  animation: spin 18s linear infinite;
+  display: block;
+
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+
+  /* IMPORTANT: only this animation (no spin / no full revolve) */
+  animation: swivel 3.6s ease-in-out infinite;
+
   transition: opacity 0.25s ease;
+
+  /* baseline glow/shadow */
   filter: drop-shadow(0 0 18px rgba(0, 255, 255, 0.35));
 }
 
@@ -79,13 +98,19 @@ body {
   }
 }
 
-/* Slow rotation */
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
+/* Small “revolving door” motion (never shows the back) */
+@keyframes swivel {
+  0% {
+    transform: rotateX(8deg) rotateY(-18deg);
+    filter: drop-shadow(0 0 28px rgba(0, 255, 255, 0.50));
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    transform: rotateX(8deg) rotateY(18deg);
+    filter: drop-shadow(0 0 28px rgba(0, 255, 255, 0.50));
+  }
+  100% {
+    transform: rotateX(8deg) rotateY(-18deg);
+    filter: drop-shadow(0 0 28px rgba(0, 255, 255, 0.50));
   }
 }
 
@@ -97,11 +122,10 @@ body {
   transform: translateX(-50%);
   z-index: 5;
 
-  width: min(1200px, 96vw);     /* bigger than before */
-  aspect-ratio: 5 / 1;          /* adjust if your PNG is a different shape */
+  width: min(1200px, 96vw);
+  aspect-ratio: 5 / 1; /* adjust if your PNG ratio differs */
   background: url("./assets/board_about.png") center / contain no-repeat;
 }
-
 
 /* Invisible clickable switches */
 .switch {
