@@ -142,31 +142,31 @@ body {
 /* Analytics */
 .switch.analytics {
   left: 14%;
-  top: 38%;
+  top: 41%;
   width: 4%;
   height: 40%;
 }
 
 /* Strategy */
 .switch.strategy {
-  left: 30%;
-  top: 38%;
+  left: 25%;
+  top: 41%;
   width: 4%;
   height: 40%;
 }
 
 /* Portfolio */
 .switch.portfolio {
-  left: 46%;
-  top: 38%;
+  left: 36%;
+  top: 41%;
   width: 4%;
   height: 40%;
 }
 
 /* About */
 .switch.about {
-  left: 62%;
-  top: 38%;
+  left: 47%;
+  top: 41%;
   width: 4%;
   height: 40%;
 }
