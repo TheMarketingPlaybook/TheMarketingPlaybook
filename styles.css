@@ -135,39 +135,42 @@ body {
   border: none;
   cursor: pointer;
 
-  transform: translate(120px, 45px); /* X right, Y down — adjust */
+  transform: translate(120px, 55px); /* X right, Y down — adjust */
 }
 
 
-/* Analytics switch hit area (tune these) */
+/* Analytics switch hit area */
 .switch.analytics {
-  left: 40px;
+  left: 80px;   /* was 40 */
   top: 40px;
   width: 120px;
   height: 80px;
 }
 
-/* placeholders */
+/* Strategy */
 .switch.strategy {
-  left: 200px;
+  left: 240px;  /* was 200 */
   top: 40px;
   width: 120px;
   height: 80px;
 }
 
+/* Portfolio */
 .switch.portfolio {
-  left: 360px;
+  left: 400px;  /* was 360 */
   top: 40px;
   width: 120px;
   height: 80px;
 }
 
+/* About */
 .switch.about {
-  left: 520px;
+  left: 560px;  /* was 520 */
   top: 40px;
   width: 120px;
   height: 80px;
 }
+
 
 .blackout {
   position: absolute;
