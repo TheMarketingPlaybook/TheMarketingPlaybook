@@ -141,7 +141,7 @@ body {
 
 /* Analytics */
 .switch.analytics {
-  left: 45%;
+  left: 30%;
   top: 31%;
   width: 4%;
   height: 40%;
@@ -149,7 +149,7 @@ body {
 
 /* Strategy */
 .switch.strategy {
-  left: 50%;
+  left: 40%;
   top: 31%;
   width: 4%;
   height: 40%;
@@ -157,7 +157,7 @@ body {
 
 /* Portfolio */
 .switch.portfolio {
-  left: 55%;
+  left: 50%;
   top: 31%;
   width: 4%;
   height: 40%;
