@@ -143,7 +143,7 @@ body {
 .switch.analytics {
   left: 14%;
   top: 38%;
-  width: 8%;
+  width: 4%;
   height: 40%;
 }
 
@@ -151,7 +151,7 @@ body {
 .switch.strategy {
   left: 30%;
   top: 38%;
-  width: 8%;
+  width: 4%;
   height: 40%;
 }
 
@@ -159,7 +159,7 @@ body {
 .switch.portfolio {
   left: 46%;
   top: 38%;
-  width: 8%;
+  width: 4%;
   height: 40%;
 }
 
@@ -167,7 +167,7 @@ body {
 .switch.about {
   left: 62%;
   top: 38%;
-  width: 8%;
+  width: 4%;
   height: 40%;
 }
 
