@@ -134,7 +134,10 @@ body {
   background: transparent;
   border: none;
   cursor: pointer;
+
+  transform: translate(80px, 30px); /* X right, Y down — adjust */
 }
+
 
 /* Analytics switch hit area (tune these) */
 .switch.analytics {
