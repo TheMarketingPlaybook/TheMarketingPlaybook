@@ -112,10 +112,21 @@
   function showCenterAsset(centerFile, label, link) {
     centerAnchor.style.display = "block";
     centerAnchor.setAttribute("aria-hidden", "false");
-    centerAsset.src = `./assets/${centerFile}`;
+
+  // reset any previous sizing class
+    centerAsset.className = "";
+
+    enterAsset.src = `./assets/${centerFile}`;
     centerAsset.alt = label ? `${label}` : "Selected";
+
+  // make Analytics logo smaller only
+    if (label === "Analytics") {
+        centerAsset.classList.add("is-analytics");
+    }
+
     activeLink = link || null;
-  }
+}
+
 
   // 1) fade to black
   // 2) swap stage + board + center while black

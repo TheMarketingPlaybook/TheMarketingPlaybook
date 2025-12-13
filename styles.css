@@ -69,6 +69,12 @@ body {
   perspective-origin: 50% 50%;
 }
 
+/* Make Analytics center asset smaller */
+.center-revolve img.is-analytics {
+  width: 72%;        /* adjust if needed: 70–75% is the sweet spot */
+  margin: 0 auto;
+}
+
 /* Swivel (no full flip), with shadow pumping at extremes */
 .center-revolve img {
   width: 100%;
