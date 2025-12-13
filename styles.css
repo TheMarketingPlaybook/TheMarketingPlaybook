@@ -204,3 +204,38 @@ body {
   outline: 2px solid rgba(255,255,255,0.35);
   outline-offset: 6px;
 }
+
+/* ===== TOP-RIGHT MINI NAV ===== */
+.mini-nav {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 20;
+
+  display: flex;
+  gap: 14px;
+  align-items: center;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+}
+
+.mini-nav a,
+.mini-nav-btn {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 999px;
+}
+
+.mini-nav a:hover,
+.mini-nav-btn:hover {
+  background: rgba(255,255,255,0.08);
+}
