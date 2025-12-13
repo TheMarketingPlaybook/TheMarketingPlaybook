@@ -363,3 +363,30 @@ body {
     width: 6%;
   }
 }
+
+/* ===== MOBILE NAV FIX ===== */
+@media (max-width: 768px) {
+  .mini-nav {
+    top: 10px;
+    right: 10px;
+    left: 10px;                 /* allow it to span the screen */
+    width: auto;
+
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 10px;
+    border-radius: 16px;
+
+    overflow-x: auto;           /* if needed, allow scroll instead of bleed */
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  .mini-nav a,
+  .mini-nav-btn {
+    font-size: 13px;
+    padding: 6px 10px;
+    flex: 0 0 auto;
+  }
+}
