@@ -319,3 +319,58 @@ body {
   color: rgba(255,255,255,0.55);
   font-size: 13px;
 }
+
+/* ===== WELCOME CHOICE LAYOUT ===== */
+.welcome-choice {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0 12px;
+}
+
+.welcome-option {
+  position: relative;
+  border-radius: 16px;
+  padding: 18px 18px 16px;
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.9);
+
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.welcome-option:hover {
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.06);
+}
+
+/* Primary (stage) option */
+.welcome-option.primary {
+  background: rgba(255,255,255,0.06);
+}
+
+.option-title {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.option-sub {
+  display: block;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Arrow hint for stage */
+.option-arrow {
+  position: absolute;
+  right: 16px;
+  bottom: 14px;
+  font-size: 22px;
+  opacity: 0.7;
+}

@@ -30,46 +30,26 @@
 
     <!-- Welcome panel (shows on load; can be closed) -->
     <section class="welcome" id="welcome" aria-labelledby="welcomeTitle" role="dialog" aria-modal="true">
-        <div class="welcome-card">
-             <button class="welcome-close" id="closeWelcome" type="button" aria-label="Close">×</button>
+        <div class="welcome-choice">
+            <!-- Stage experience -->
+            <button
+                class="welcome-option primary"
+                id="enterStage"
+                type="button"
+            >
+                <span class="option-title">Take me to the stage</span>
+                <span class="option-sub">Interactive, visual experience</span>
+                <span class="option-arrow">→</span>
+            </button>
 
-             <h1 id="welcomeTitle">Welcome to The Marketing Playbook</h1>
-             <p class="welcome-text">
-             Use the switchboard to change the stage. Each switch reveals a featured asset.
-             Click the floating asset to enter that section.
-             </p>
-
-            <div class="welcome-actions">
-            <button class="welcome-jump" type="button"
-                data-stage="Cyan_Stage.png"
-                data-center="headshot_stage.png"
-                data-board="board_about.png"
-                data-link="about.html"
-                data-label="about">About</button>
-
-            <button class="welcome-jump" type="button"
-                data-stage="Purple_Stage.png"
-                data-center="analytics_stage.png"
-                data-board="board_analytics.png"
-                data-link="analytics.html"
-                data-label="analytics">Analytics</button>
-
-            <button class="welcome-jump" type="button"
-                data-stage="Green_Stage.png"
-                data-center="strategy.png"
-                data-board="board_strategy.png"
-                data-link="strategy.html"
-                data-label="strategy">Strategy</button>
-
-            <button class="welcome-jump" type="button"
-                data-stage="Gold_Stage.png"
-                data-center="portfolio.png"
-                data-board="board_portfolio.png"
-                data-link="portfolio.html"
-                data-label="portfolio">Portfolio</button>
-            </div>
-
-            <p class="welcome-hint">Tip: You can always use the top-right links to skip the stage.</p>
+            <!-- Traditional site -->
+            <a
+                class="welcome-option secondary"
+                href="simple.html"
+            >
+                <span class="option-title">My traditional website</span>
+                <span class="option-sub">Clean, straightforward layout</span>
+            </a>
         </div>
     </section>
 
@@ -274,6 +254,12 @@
       });
       hideWelcome();
     });
+  });
+
+  const enterStage = document.getElementById("enterStage");
+
+  enterStage?.addEventListener("click", () => {
+    hideWelcome();
   });
 
   
