@@ -20,7 +20,7 @@
     <div class="blackout" id="blackout"></div>
 
     <!-- Floating center asset (starts hidden) -->
-    <div class="center-anchor" id="centerAnchor" aria-hidden="true">
+    <div class="center-anchor" id="centerAnchor" aria-hidden="true" style="display:none;">
       <div class="center-float">
         <div class="center-revolve">
           <!-- Make this a button so it’s clickable and accessible -->
@@ -116,11 +116,11 @@
   // reset any previous sizing class
     centerAsset.className = "";
 
-    enterAsset.src = `./assets/${centerFile}`;
+    centerAsset.src = `./assets/${centerFile}`;
     centerAsset.alt = label ? `${label}` : "Selected";
 
   // make Analytics logo smaller only
-    if (label === "Analytics") {
+    if (label === "analytics") {
         centerAsset.classList.add("is-analytics");
     }
 
