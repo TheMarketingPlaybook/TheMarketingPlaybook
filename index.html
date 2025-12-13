@@ -153,8 +153,6 @@
   const welcome = document.getElementById("welcome");
   const closeWelcome = document.getElementById("closeWelcome");
   const openWelcome = document.getElementById("openWelcome");
-  const welcomeJumps = document.querySelectorAll(".welcome-jump");
-
 
   // Where should the center asset click go?
   let activeLink = null;
@@ -260,19 +258,6 @@
   closeWelcome?.addEventListener("click", hideWelcome);
   openWelcome?.addEventListener("click", showWelcome);
 
-  // Jump buttons trigger the same transition, then close the welcome
-  welcomeJumps.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      transitionTo({
-        stageFile: btn.dataset.stage || null,
-        centerFile: btn.dataset.center || null,
-        boardFile: btn.dataset.board || null,
-        label: btn.dataset.label || "",
-        link: btn.dataset.link || null,
-      });
-      hideWelcome();
-    });
-  });
 
   const enterStage = document.getElementById("enterStage");
 
