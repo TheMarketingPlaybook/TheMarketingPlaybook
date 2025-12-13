@@ -239,3 +239,83 @@ body {
 .mini-nav-btn:hover {
   background: rgba(255,255,255,0.08);
 }
+
+/* ===== WELCOME PANEL ===== */
+.welcome {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+}
+
+.welcome-card {
+  width: min(720px, 92vw);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+
+  background: rgba(20,20,20,0.92);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.65);
+  position: relative;
+}
+
+.welcome-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.85);
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+
+.welcome-card h1 {
+  font-size: 22px;
+  color: rgba(255,255,255,0.92);
+  margin-bottom: 8px;
+}
+
+.welcome-text {
+  color: rgba(255,255,255,0.75);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.welcome-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 10px;
+}
+
+.welcome-jump {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.35);
+  color: rgba(255,255,255,0.9);
+  padding: 12px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.welcome-jump:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.welcome-hint {
+  margin-top: 10px;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+}
