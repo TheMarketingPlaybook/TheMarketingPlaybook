@@ -31,38 +31,33 @@
         <!-- Welcome panel -->
       <section class="welcome" id="welcome" role="dialog" aria-modal="true">
          <div class="welcome-card">
-            <div class="welcome-choice-box">
+            <button
+                class="welcome-close"
+                id="closeWelcome"
+                type="button"
+                aria-label="Close"
+            >
+                ×
+            </button>
 
+            <div class="welcome-choice">
+                <!-- Stage experience -->
                 <button
-                    class="welcome-choice-close"
-                    id="closeWelcome"
+                    class="welcome-option primary"
+                    id="enterStage"
                     type="button"
-                    aria-label="Close"
                 >
-                    ×
+                    <span class="option-title">Take me to the stage</span>
+                    <span class="option-sub">Interactive, visual experience</span>
+                    <span class="option-arrow">→</span>
                 </button>
 
-                <div class="welcome-choice">
-                    <!-- Stage experience -->
-                    <button
-                        class="welcome-option primary"
-                        id="enterStage"
-                        type="button"
-                    >
-                        <span class="option-title">Take me to the stage</span>
-                        <span class="option-sub">Interactive, visual experience</span>
-                        <span class="option-arrow">→</span>
-                    </button>
-
-                    <!-- Traditional site -->
-                    <a
-                        class="welcome-option secondary"
-                        href="simple.html"
-                    >
-                        <span class="option-title">My traditional website</span>
-                        <span class="option-sub">Clean, straightforward layout</span>
-                    </a>
-                </div>
+                <!-- Traditional site -->
+                <a class="welcome-option secondary" href="simple.html">
+                    <span class="option-title">My traditional website</span>
+                    <span class="option-sub">Clean, straightforward layout</span>
+                </a>
+                
             </div>
 
             <p class="welcome-hint">
