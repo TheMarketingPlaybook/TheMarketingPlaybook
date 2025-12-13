@@ -347,3 +347,19 @@ body {
   opacity: 0.7;
 }
 
+/* ===== MOBILE SWITCHBOARD SCALE FIX ===== */
+@media (max-width: 768px) {
+  .switchboard {
+    width: 98vw;              /* nearly edge-to-edge */
+    transform: translateX(-50%) translateY(16px);
+    aspect-ratio: 4.2 / 1;    /* slightly taller feel on phones */
+  }
+
+  /* Make hitboxes slightly wider on mobile */
+  .switch.analytics,
+  .switch.strategy,
+  .switch.portfolio,
+  .switch.about {
+    width: 6%;
+  }
+}
