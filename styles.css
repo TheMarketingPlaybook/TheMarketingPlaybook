@@ -347,22 +347,22 @@ body {
   opacity: 0.7;
 }
 
-/* ===== MOBILE SWITCHBOARD SCALE FIX ===== */
 @media (max-width: 768px) {
   .switchboard {
-    width: 98vw;              /* nearly edge-to-edge */
-    transform: translateX(-50%) translateY(16px);
-    aspect-ratio: 4.2 / 1;    /* slightly taller feel on phones */
+    width: 104vw;                           /* bigger than the screen */
+    transform: translateX(-50%) translateY(10px);
+    aspect-ratio: 5 / 1;                    /* match your desktop ratio */
+    background-size: contain;               /* keep */
   }
 
-  /* Make hitboxes slightly wider on mobile */
   .switch.analytics,
   .switch.strategy,
   .switch.portfolio,
   .switch.about {
-    width: 6%;
+    width: 6.5%;
   }
 }
+
 
 /* ===== MOBILE NAV FIX ===== */
 @media (max-width: 768px) {
