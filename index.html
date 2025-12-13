@@ -28,44 +28,48 @@
          <button class="mini-nav-btn" id="openWelcome" type="button">Guide</button>
     </nav>
 
-            <!-- Welcome panel (shows on load; can be closed) -->
-    <div class="welcome-choice-box">
-        <button
-            class="welcome-choice-close"
-            id="closeWelcome"
-            type="button"
-            aria-label="Close"
-        >
-            ×
-        </button>
+        <!-- Welcome panel -->
+      <section class="welcome" id="welcome" role="dialog" aria-modal="true">
+         <div class="welcome-card">
+            <div class="welcome-choice-box">
 
-        <div class="welcome-choice">
-            <!-- Stage experience -->
-            <button
-                class="welcome-option primary"
-                id="enterStage"
-                type="button"
-            >
-                <span class="option-title">Take me to the stage</span>
-                <span class="option-sub">Interactive, visual experience</span>
-                <span class="option-arrow">→</span>
-            </button>
+                <button
+                    class="welcome-choice-close"
+                    id="closeWelcome"
+                    type="button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
 
-            <!-- Traditional site -->
-            <a
-                class="welcome-option secondary"
-                href="simple.html"
-            >
-                <span class="option-title">My traditional website</span>
-                <span class="option-sub">Clean, straightforward layout</span>
-            </a>
+                <div class="welcome-choice">
+                    <!-- Stage experience -->
+                    <button
+                        class="welcome-option primary"
+                        id="enterStage"
+                        type="button"
+                    >
+                        <span class="option-title">Take me to the stage</span>
+                        <span class="option-sub">Interactive, visual experience</span>
+                        <span class="option-arrow">→</span>
+                    </button>
+
+                    <!-- Traditional site -->
+                    <a
+                        class="welcome-option secondary"
+                        href="simple.html"
+                    >
+                        <span class="option-title">My traditional website</span>
+                        <span class="option-sub">Clean, straightforward layout</span>
+                    </a>
+                </div>
+            </div>
+
+            <p class="welcome-hint">
+            Tip: Click the floating image after choosing a light switch, or use the top-right links to jump directly.
+            </p>
         </div>
-    </div>
-
-    <p class="welcome-hint">
-        Tip: Click the floating image after choosing a light switch, or use the top-right links to jump directly.
-    </p>
-
+    </section>
 
     <!-- Floating center asset (starts hidden) -->
     <div class="center-anchor" id="centerAnchor" aria-hidden="true" style="display:none;">
