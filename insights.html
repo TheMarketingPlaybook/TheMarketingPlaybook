@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insights | The Marketing Playbook</title>
+    <meta name="description" content="Strategy and Analytics articles from The Marketing Playbook." />
+
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.45;
+      }
+
+      :root{
+        --bg: #0b0b0d;
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --radius-sm: 14px;
+        --max: 1100px;
+      }
+
+      /* ===== PAGE LAYOUT ===== */
+      .wrap {
+        min-height: 100%;
+        padding: 48px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      /* ===== HEADER ===== */
+      .topbar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .title-block h1 {
+        font-size: clamp(28px, 3vw, 44px);
+        letter-spacing: 0.4px;
+        margin-bottom: 6px;
+      }
+
+      .title-block p {
+        color: var(--muted);
+        max-width: 68ch;
+      }
+
+      .home-link {
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+      .home-link:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      /* ===== CONTROLS ===== */
+      .controls {
+        margin: 18px 0 22px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .tabs {
+        display: inline-flex;
+        padding: 6px;
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid var(--border);
+        gap: 6px;
+      }
+
+      .tab {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        padding: 10px 14px;
+        border-radius: 999px;
+        cursor: pointer;
+        transition: background 0.15s ease, color 0.15s ease;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      .tab[aria-selected="true"] {
+        background: rgba(255,255,255,0.09);
+        color: #f4f4f5;
+      }
+
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 12px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        background: rgba(255,255,255,0.04);
+        min-width: min(420px, 100%);
+      }
+
+      .search input {
+        width: 100%;
+        background: transparent;
+        border: 0;
+        outline: none;
+        color: #f4f4f5;
+        font-size: 14px;
+      }
+
+      .search .hint {
+        color: var(--muted-2);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      /* ===== GRID ===== */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        grid-column: span 6;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        background: var(--panel-2);
+        border-color: var(--border-2);
+      }
+
+      .thumb {
+        height: 168px;
+        background: rgba(255,255,255,0.05);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+      }
+
+      .thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.02) contrast(1.03);
+      }
+
+      .thumb .fallback {
+        color: var(--muted-2);
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .content {
+        padding: 16px 16px 18px;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+
+      .date {
+        color: var(--muted-2);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .card h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: 14px;
+        max-width: 72ch;
+      }
+
+      .footerline {
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* ===== EMPTY STATE ===== */
+      .empty {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: var(--radius);
+        border: 1px dashed var(--border);
+        color: var(--muted);
+        background: rgba(255,255,255,0.03);
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .card { grid-column: span 12; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .home-link { align-self: flex-start; }
+        .controls { gap: 10px; }
+        .search { min-width: 100%; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>Insights</h1>
+            <p>
+              Strategy and analytics thinking in one place. Filter by category, or browse everything.
+            </p>
+          </div>
+
+          <!-- Update href to your actual homepage -->
+          <a class="home-link" href="index.html">Back to Home</a>
+        </header>
+
+        <div class="controls">
+          <div class="tabs" role="tablist" aria-label="Insights categories">
+            <button class="tab" role="tab" data-view="all" aria-selected="true">All</button>
+            <button class="tab" role="tab" data-view="strategy" aria-selected="false">Strategy</button>
+            <button class="tab" role="tab" data-view="analytics" aria-selected="false">Analytics</button>
+          </div>
+
+          <div class="search" role="search">
+            <input id="searchInput" type="search" placeholder="Search articles (title, summary, tags)..." />
+            <span class="hint">Enter</span>
+          </div>
+        </div>
+
+        <section id="grid" class="grid" aria-live="polite"></section>
+        <div id="empty" class="empty" style="display:none;">
+          No articles match that filter/search. Try a different view or clear the search box.
+        </div>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+
+    <script>
+      /**
+       * CONTENT MODEL
+       * - category: "strategy" | "analytics"
+       * - href: link to your full article page (e.g., ./articles/mattress-mack.html)
+       * - image: optional thumbnail; leave empty string to use fallback
+       * - date: ISO or readable
+       * - tags: array of keywords for search
+       */
+      const ARTICLES = [
+        {
+          title: "Mattress Mack: Local Moat, National Spotlight",
+          category: "strategy",
+          summary:
+            "How Jim ‘Mattress Mack’ McIngvale turns philanthropy, community trust, and high-velocity offers into a compounding brand engine.",
+          href: "./articles/mattress-mack.html",
+          image: "./assets/thumbs/mattress-mack.jpg",
+          date: "2025-06-14",
+          tags: ["brand", "positioning", "community", "promotions", "retail"]
+        },
+        {
+          title: "CLV as a Targeting System (Not a Dashboard)",
+          category: "analytics",
+          summary:
+            "A practical way to convert CLV outputs into segmentation, bidding, creative prioritization, and retention plays.",
+          href: "./articles/clv-targeting.html",
+          image: "./assets/thumbs/clv.jpg",
+          date: "2025-06-01",
+          tags: ["clv", "segmentation", "ltv", "retention", "targeting"]
+        },
+        {
+          title: "Decoy Pricing and the Psychology of Choice",
+          category: "strategy",
+          summary:
+            "How to build an offer architecture that increases conversion without discounting your core product into oblivion.",
+          href: "./articles/decoy-pricing.html",
+          image: "",
+          date: "2025-05-19",
+          tags: ["pricing", "behavioral", "offers", "conversion"]
+        },
+        {
+          title: "Attribution Reality Check: Causality, Not Correlation",
+          category: "analytics",
+          summary:
+            "What to trust, what to ignore, and how to set up tests that withstand executive scrutiny.",
+          href: "./articles/causality-attribution.html",
+          image: "",
+          date: "2025-05-02",
+          tags: ["incrementality", "experiments", "lift", "measurement", "causality"]
+        }
+      ];
+
+      // ---- STATE ----
+      let currentView = "all";
+      let searchTerm = "";
+
+      // ---- ELEMENTS ----
+      const gridEl = document.getElementById("grid");
+      const emptyEl = document.getElementById("empty");
+      const searchInput = document.getElementById("searchInput");
+      const tabButtons = Array.from(document.querySelectorAll(".tab"));
+
+      // ---- HELPERS ----
+      function normalize(str) {
+        return (str || "").toString().toLowerCase().trim();
+      }
+
+      function matchesSearch(article, term) {
+        if (!term) return true;
+        const haystack = [
+          article.title,
+          article.summary,
+          article.category,
+          ...(article.tags || [])
+        ].map(normalize).join(" ");
+        return haystack.includes(normalize(term));
+      }
+
+      function matchesView(article, view) {
+        if (view === "all") return true;
+        return article.category === view;
+      }
+
+      function formatDate(dateStr) {
+        // Accepts ISO or readable. If ISO, format nicely.
+        const iso = /^\d{4}-\d{2}-\d{2}$/.test(dateStr);
+        if (!iso) return dateStr;
+
+        const d = new Date(dateStr + "T00:00:00");
+        return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
+      }
+
+      function pillLabel(category) {
+        return category === "strategy" ? "Strategy" : "Analytics";
+      }
+
+      function render() {
+        const filtered = ARTICLES
+          .slice()
+          .sort((a, b) => (normalize(b.date) > normalize(a.date) ? 1 : -1))
+          .filter(a => matchesView(a, currentView))
+          .filter(a => matchesSearch(a, searchTerm));
+
+        gridEl.innerHTML = filtered.map(article => {
+          const hasImage = article.image && article.image.trim().length > 0;
+
+          return `
+            <a class="card" href="${article.href}">
+              <div class="thumb">
+                ${
+                  hasImage
+                    ? `<img src="${article.image}" alt="${article.title} thumbnail" loading="lazy" />`
+                    : `<div class="fallback">THE MARKETING PLAYBOOK</div>`
+                }
+              </div>
+              <div class="content">
+                <div class="meta">
+                  <span class="pill">${pillLabel(article.category)}</span>
+                  <span class="date">${formatDate(article.date)}</span>
+                </div>
+                <h2>${article.title}</h2>
+                <p>${article.summary}</p>
+              </div>
+            </a>
+          `;
+        }).join("");
+
+        const isEmpty = filtered.length === 0;
+        emptyEl.style.display = isEmpty ? "block" : "none";
+      }
+
+      function setActiveTab(view) {
+        tabButtons.forEach(btn => {
+          const selected = btn.dataset.view === view;
+          btn.setAttribute("aria-selected", selected ? "true" : "false");
+        });
+      }
+
+      function setView(view, { pushState = true } = {}) {
+        currentView = view;
+        setActiveTab(view);
+        render();
+
+        // Maintain view in URL so homepage can deep-link to presets
+        const url = new URL(window.location.href);
+        url.searchParams.set("view", view);
+        if (pushState) window.history.replaceState({}, "", url.toString());
+      }
+
+      function readPresetFromURL() {
+        const url = new URL(window.location.href);
+        const view = normalize(url.searchParams.get("view"));
+        if (view === "strategy" || view === "analytics" || view === "all") return view;
+        return "all";
+      }
+
+      // ---- EVENTS ----
+      tabButtons.forEach(btn => {
+        btn.addEventListener("click", () => setView(btn.dataset.view));
+      });
+
+      searchInput.addEventListener("input", (e) => {
+        searchTerm = e.target.value || "";
+        render();
+      });
+
+      // ---- INIT ----
+      const preset = readPresetFromURL();
+      setView(preset, { pushState: false });
+      render();
+    </script>
+  </body>
+</html>
