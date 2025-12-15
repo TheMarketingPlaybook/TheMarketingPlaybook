@@ -349,10 +349,11 @@ body {
 
 @media (max-width: 768px) {
   .switchboard {
-    width: 104vw;                           /* bigger than the screen */
-    transform: translateX(-50%) translateY(10px);
-    aspect-ratio: 5 / 1;                    /* match your desktop ratio */
-    background-size: contain;               /* keep */
+    width: 130vw;                           /* bigger than the screen */
+    transform: translateX(-50%) translateY(18px);
+    aspect-ratio: 4.2 / 1;                    /* match your desktop ratio */
+    background-size: cover;                     /* key change */
+    background-position: center bottom;
   }
 
   .switch.analytics,
