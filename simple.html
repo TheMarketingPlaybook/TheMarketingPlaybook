@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Marketing Playbook | Simple</title>
+    <meta name="description" content="A simple navigation view for The Marketing Playbook." />
+
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.45;
+      }
+
+      :root{
+        --bg: #0b0b0d;
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --radius-sm: 14px;
+        --max: 1100px;
+      }
+
+      /* ===== PAGE LAYOUT ===== */
+      .wrap {
+        min-height: 100%;
+        padding: 48px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      /* ===== HEADER ===== */
+      .topbar {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .title-block h1 {
+        font-size: clamp(28px, 3vw, 44px);
+        letter-spacing: 0.4px;
+        margin-bottom: 6px;
+      }
+
+      .title-block p {
+        color: var(--muted);
+        max-width: 74ch;
+      }
+
+      .home-link {
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+      .home-link:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      /* ===== HERO PANEL ===== */
+      .hero {
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 18px;
+      }
+
+      .hero-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        font-size: 12px;
+        color: var(--muted);
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+
+      .hero h2 {
+        font-size: 18px;
+        margin-top: 10px;
+        letter-spacing: 0.2px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        margin-top: 6px;
+        max-width: 80ch;
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      .btn.primary {
+        background: rgba(255,255,255,0.10);
+      }
+
+      /* ===== GRID ===== */
+      .section-title {
+        margin: 22px 0 12px;
+        color: var(--muted-2);
+        font-size: 13px;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 14px;
+      }
+
+      .card {
+        grid-column: span 6;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .card:hover {
+        transform: translateY(-2px);
+        background: var(--panel-2);
+        border-color: var(--border-2);
+      }
+
+      .thumb {
+        height: 140px;
+        background: rgba(255,255,255,0.05);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .thumb .fallback {
+        color: var(--muted-2);
+        font-weight: 700;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+        font-size: 12px;
+        text-align: center;
+        padding: 0 14px;
+      }
+
+      .content {
+        padding: 16px 16px 18px;
+      }
+
+      .meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .kicker {
+        color: var(--muted-2);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .card h3 {
+        font-size: 18px;
+        margin-bottom: 8px;
+        letter-spacing: 0.2px;
+      }
+
+      .card p {
+        color: var(--muted);
+        font-size: 14px;
+        max-width: 72ch;
+      }
+
+      .footerline {
+        margin-top: 22px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px) {
+        .card { grid-column: span 12; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+        .home-link { align-self: flex-start; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>The Marketing Playbook</h1>
+            <p>
+              A simple, non-interactive navigation view for readers who just want to browse.
+              Use Insights to filter Strategy vs Analytics—or jump straight into either stream.
+            </p>
+          </div>
+
+          <!-- If this *is* your main index, change to whatever your stage page is named -->
+          <a class="home-link" href="index.html">Go to Stage Home</a>
+        </header>
+
+        <section class="hero">
+          <div class="hero-row">
+            <span class="pill">Simple View</span>
+            <div class="hero-actions">
+              <a class="btn primary" href="insights.html?view=all">Browse Insights</a>
+              <a class="btn" href="insights.html?view=strategy">Strategy</a>
+              <a class="btn" href="insights.html?view=analytics">Analytics</a>
+            </div>
+          </div>
+
+          <h2>Start here</h2>
+          <p>
+            If you’re evaluating my thinking quickly: open Insights and skim the card summaries.
+            If you’re here for one lane, use Strategy or Analytics to load the filtered view immediately.
+          </p>
+        </section>
+
+        <div class="section-title">Core</div>
+        <section class="grid">
+          <a class="card" href="insights.html?view=all">
+            <div class="thumb">
+              <div class="fallback">INSIGHTS (ALL)</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">All</span>
+                <span class="kicker">Filterable index</span>
+              </div>
+              <h3>Browse everything</h3>
+              <p>
+                One grid. Searchable. Switch between Strategy, Analytics, or All without leaving the page.
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="insights.html?view=strategy">
+            <div class="thumb">
+              <div class="fallback">STRATEGY</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">Strategy</span>
+                <span class="kicker">Positioning, GTM, pricing</span>
+              </div>
+              <h3>Strategy articles</h3>
+              <p>
+                Brand moats, GTM logic, offer architecture, and the decision frameworks behind growth.
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="insights.html?view=analytics">
+            <div class="thumb">
+              <div class="fallback">ANALYTICS</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">Analytics</span>
+                <span class="kicker">CLV, measurement, testing</span>
+              </div>
+              <h3>Analytics articles</h3>
+              <p>
+                Practical modeling, attribution reality checks, causality-first thinking, and KPI design.
+              </p>
+            </div>
+          </a>
+
+          <!-- Optional: keep or delete these -->
+          <a class="card" href="about.html">
+            <div class="thumb">
+              <div class="fallback">ABOUT</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">Profile</span>
+                <span class="kicker">Background</span>
+              </div>
+              <h3>About</h3>
+              <p>
+                A short profile page for context: experience, focus areas, and what I’m building.
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="portfolio.html">
+            <div class="thumb">
+              <div class="fallback">PORTFOLIO</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">Work</span>
+                <span class="kicker">Selected projects</span>
+              </div>
+              <h3>Portfolio</h3>
+              <p>
+                Campaigns, design work, and strategy artifacts. (If it’s blank for now, that’s fine.)
+              </p>
+            </div>
+          </a>
+
+          <a class="card" href="contact.html">
+            <div class="thumb">
+              <div class="fallback">CONTACT</div>
+            </div>
+            <div class="content">
+              <div class="meta">
+                <span class="pill">Connect</span>
+                <span class="kicker">Email / LinkedIn</span>
+              </div>
+              <h3>Contact</h3>
+              <p>
+                A minimal page with your preferred contact method(s) and a quick note on what you’re open to.
+              </p>
+            </div>
+          </a>
+        </section>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
+</html>
