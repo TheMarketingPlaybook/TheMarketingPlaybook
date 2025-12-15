@@ -6,6 +6,8 @@
     <title>The Marketing Playbook | Simple</title>
     <meta name="description" content="A simple navigation view for The Marketing Playbook." />
 
+    <link rel="icon" href="./assets/favicon.ico" />
+
     <style>
       /* ===== RESET ===== */
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -32,10 +34,53 @@
         --max: 1100px;
       }
 
+      /* ===== MINI NAV (matches index markup) ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .mini-nav a,
+      .mini-nav button {
+        appearance: none;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        color: #f4f4f5;
+        text-decoration: none;
+        padding: 9px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .mini-nav a:hover,
+      .mini-nav button:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      .mini-nav-btn {
+        /* keeps your index class name intact */
+      }
+
       /* ===== PAGE LAYOUT ===== */
       .wrap {
         min-height: 100%;
-        padding: 48px 18px 80px;
+        padding: 28px 18px 80px; /* reduced top padding since nav is now on top */
         display: flex;
         justify-content: center;
       }
@@ -251,11 +296,22 @@
         .card { grid-column: span 12; }
         .topbar { flex-direction: column; align-items: flex-start; }
         .home-link { align-self: flex-start; }
+        .mini-nav { justify-content: flex-start; flex-wrap: wrap; }
       }
     </style>
   </head>
 
   <body>
+    <!-- Same navbar markup as index.html -->
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="insights.html?view=analytics">Analytics</a>
+      <a href="insights.html?view=strategy">Strategy</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <!-- Guide button exists on stage only; here it routes to the stage home -->
+      <a class="mini-nav-btn" href="index.html">Stage</a>
+    </nav>
+
     <main class="wrap">
       <section class="container">
         <header class="topbar">
@@ -267,7 +323,6 @@
             </p>
           </div>
 
-          <!-- If this *is* your main index, change to whatever your stage page is named -->
           <a class="home-link" href="index.html">Go to Stage Home</a>
         </header>
 
@@ -291,9 +346,7 @@
         <div class="section-title">Core</div>
         <section class="grid">
           <a class="card" href="insights.html?view=all">
-            <div class="thumb">
-              <div class="fallback">INSIGHTS (ALL)</div>
-            </div>
+            <div class="thumb"><div class="fallback">INSIGHTS (ALL)</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">All</span>
@@ -307,9 +360,7 @@
           </a>
 
           <a class="card" href="insights.html?view=strategy">
-            <div class="thumb">
-              <div class="fallback">STRATEGY</div>
-            </div>
+            <div class="thumb"><div class="fallback">STRATEGY</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">Strategy</span>
@@ -323,9 +374,7 @@
           </a>
 
           <a class="card" href="insights.html?view=analytics">
-            <div class="thumb">
-              <div class="fallback">ANALYTICS</div>
-            </div>
+            <div class="thumb"><div class="fallback">ANALYTICS</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">Analytics</span>
@@ -338,11 +387,8 @@
             </div>
           </a>
 
-          <!-- Optional: keep or delete these -->
           <a class="card" href="about.html">
-            <div class="thumb">
-              <div class="fallback">ABOUT</div>
-            </div>
+            <div class="thumb"><div class="fallback">ABOUT</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">Profile</span>
@@ -356,9 +402,7 @@
           </a>
 
           <a class="card" href="portfolio.html">
-            <div class="thumb">
-              <div class="fallback">PORTFOLIO</div>
-            </div>
+            <div class="thumb"><div class="fallback">PORTFOLIO</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">Work</span>
@@ -372,9 +416,7 @@
           </a>
 
           <a class="card" href="contact.html">
-            <div class="thumb">
-              <div class="fallback">CONTACT</div>
-            </div>
+            <div class="thumb"><div class="fallback">CONTACT</div></div>
             <div class="content">
               <div class="meta">
                 <span class="pill">Connect</span>
