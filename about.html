@@ -1,87 +1,280 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Todd Dearborn — The Marketing Playbook</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
-<body class="content-page">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Todd Dearborn | The Marketing Playbook</title>
+    <meta name="description" content="About Todd Dearborn — marketing strategy, analytics, and storytelling." />
 
-  <!-- Navigation Bar -->
-  <nav>
-    <ul class="navbar-container">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="blog.html">The Blog</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html" class="active">About Todd</a></li>
-      <li><a href="/contact.html">Contact Me</a></li>
-    </ul>
-  </nav>
+    <link rel="icon" href="assets/favicon.png" type="image/png" />
 
-  <!-- Hero / Profile Header -->
-  <header class="hero">
-    <div class="hero-box" style="max-width:800px; margin:2rem auto; text-align:center;">
-      <img 
-        src="assets/headshot.jpg" 
-        alt="Todd Dearborn" 
-        style="width:200px; height:200px; border-radius:100px; object-fit:cover; margin-bottom:1rem;"
-      />
-      <h1 class="title" style="font-size:3rem; color:#fff; margin-bottom:0.5rem;">
-        Todd Dearborn
-      </h1>
-      <p class="subtitle" style="font-size:1.25rem; color:#ccc; font-style:italic;">
-        “Translating data into stories that connect, engage, and convert.”
-      </p>
-    </div>
-  </header>
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
 
-  <!-- Main Bio Content -->
-  <main style="max-width: 800px; margin: 0 auto; padding: 2rem; background:#2a2a2a; border-radius:8px; color:#eee; line-height:1.6;">
-    <article>
-      <p><strong>Todd Dearborn</strong> is a marketing strategist and storyteller based in Tampa, FL, with a Master of Science in Marketing from the McCombs School of Business at The University of Texas at Austin (’25). Over the past three years, he has built data-driven campaigns and user-centered digital experiences for a major tech firm, lawfirm, and many more for projects.</p>
+      body {
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.55;
+      }
 
-      <p>His signature approach marries advanced analytics (SQL, Python, R) with creative UX design—transforming complex financial products and case studies (like ETF deep-dives and mutual fund narratives) into intuitive visual stories that resonate with everyday investors.</p>
+      :root {
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --max: 900px;
+      }
 
-      <h2 style="margin-top:2rem; color:#fff;">Key Highlights</h2>
-      <ul style="list-style-type: square; padding-left:1.5rem;">
-        <li>Built customer lifetime-value models driving lift in retention for a major tech client</li>
-        <li>Authored 10+ in-depth case studies: “Mattress Mack,” “Pirate Game Theory,” “AI Marketing,” and more</li>
-        <li>Designed, coded this website & portfolio showcase video. Made wireframe app prototypes with user journeys</li>
-        <li>Co-founded a real-estate rehabilitation startup, generating $500K+ revenue in 8 months</li>
-      </ul>
+      /* ===== LAYOUT ===== */
+      .wrap {
+        min-height: 100%;
+        padding: 48px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
 
-      <h2 style="margin-top:2rem; color:#fff;">Featured Publications</h2>
-      <ol style="padding-left:1.5rem;">
-        <li><a href="blog.html#pirate-theory" style="color:#00ffd5;">Pirates & Game Theory: Branding Through Chaos</a></li>
-        <li><a href="blog.html#mattress-mack" style="color:#00ffd5;">Mattress Mack: Profile in Community-First Marketing</a></li>
-        <li><a href="blog.html#liquid-billboard" style="color:#00ffd5;">Liquid Billboard: Social Impact Never Looked Better</a></li>
-        <li><a href="blog.html#ai" style="color:#00ffd5;">Artificial Intelligence: The Next Wave in Customer-Centric Strategy</a></li>
-      </ol>
+      .container {
+        width: 100%;
+        max-width: var(--max);
+      }
 
-      <h2 style="margin-top:2rem; color:#fff;">Education & Credentials</h2>
-      <p>
-        <strong>The University of Texas at Austin</strong> — M.S. Marketing, GPA 3.67 (’25)<br/>
-        <strong>Southwestern University</strong> — B.A. Business, Communication Studies & Political Science (’23)
-      </p>
-      <p>
-        Certified: Google Display Ads Professional<br/>
-        Tools: Figma, Adobe Creative Suite, After Effects, BigQuery, GA4
-      </p>
-    </article>
+      /* ===== HEADER ===== */
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 24px;
+      }
 
-    <!-- Contact Footer -->
-    <footer id="contact" style="margin-top:3rem; text-align:center; color:#ccc;">
-      <p>Connect with me:</p>
-      <p>
-        <a href="mailto:toddalexander1109@gmail.com" style="color:#00ffd5;">toddalexander1109@gmail.com</a>  &nbsp; | &nbsp;  
-        <a href="tel:+17036556584" style="color:#00ffd5;">(703) 655-6584</a>  &nbsp; | &nbsp;  
-        <a href="https://themarketingplaybook.io" style="color:#00ffd5;" target="_blank">TheMarketingPlaybook.io</a>
-      </p>
-    </footer>
-  </main>
+      .topbar h1 {
+        font-size: clamp(30px, 3vw, 44px);
+        letter-spacing: 0.4px;
+      }
 
-</body>
+      .topbar p {
+        color: var(--muted);
+        max-width: 65ch;
+        margin-top: 6px;
+      }
+
+      .home-link {
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .home-link:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      /* ===== PROFILE CARD ===== */
+      .profile {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+        display: flex;
+        gap: 22px;
+        align-items: center;
+        margin-bottom: 26px;
+      }
+
+      .profile img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.05);
+      }
+
+      .profile h2 {
+        font-size: 24px;
+        margin-bottom: 6px;
+      }
+
+      .profile .tagline {
+        color: var(--muted);
+        font-style: italic;
+        max-width: 52ch;
+      }
+
+      /* ===== CONTENT SECTIONS ===== */
+      .section {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 22px;
+        margin-bottom: 18px;
+      }
+
+      .section h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        letter-spacing: 0.3px;
+      }
+
+      .section p {
+        color: var(--muted);
+        margin-bottom: 14px;
+        max-width: 80ch;
+      }
+
+      ul, ol {
+        padding-left: 1.4rem;
+        color: var(--muted);
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      a {
+        color: #7dd3fc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===== CONTACT ===== */
+      .contact {
+        text-align: center;
+        color: var(--muted);
+        margin-top: 28px;
+      }
+
+      .contact a {
+        color: #7dd3fc;
+        font-weight: 600;
+      }
+
+      .footerline {
+        margin-top: 22px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 800px) {
+        .profile {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .profile img {
+          width: 140px;
+          height: 140px;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div>
+            <h1>About</h1>
+            <p>
+              Strategy, analytics, and storytelling — grounded in data, built for humans.
+            </p>
+          </div>
+          <a class="home-link" href="index.html">Back to Home</a>
+        </header>
+
+        <section class="profile">
+          <img src="assets/headshot.jpg" alt="Todd Dearborn" />
+          <div>
+            <h2>Todd Dearborn</h2>
+            <p class="tagline">
+              Translating data into stories that connect, engage, and convert.
+            </p>
+          </div>
+        </section>
+
+        <section class="section">
+          <p>
+            <strong>Todd Dearborn</strong> is a marketing strategist and storyteller based in Tampa, FL,
+            with a Master of Science in Marketing from the McCombs School of Business at
+            The University of Texas at Austin (’25).
+          </p>
+
+          <p>
+            His work sits at the intersection of advanced analytics (SQL, Python, R),
+            creative UX design, and narrative clarity—turning complex financial products,
+            attribution systems, and growth strategies into ideas people can actually understand.
+          </p>
+        </section>
+
+        <section class="section">
+          <h3>Selected Highlights</h3>
+          <ul>
+            <li>Built customer lifetime value models driving measurable retention lift</li>
+            <li>Authored 10+ in-depth strategy and analytics case studies</li>
+            <li>Designed and coded this website and interactive portfolio experiences</li>
+            <li>Co-founded a real-estate rehabilitation startup generating $500K+ in revenue</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h3>Featured Writing</h3>
+          <ol>
+            <li><a href="insights.html?view=strategy">Mattress Mack: Community-First Marketing</a></li>
+            <li><a href="insights.html?view=strategy">Pirates & Game Theory</a></li>
+            <li><a href="insights.html?view=analytics">CLV as a Targeting System</a></li>
+            <li><a href="insights.html?view=analytics">Causality Over Correlation</a></li>
+          </ol>
+        </section>
+
+        <section class="section">
+          <h3>Education & Tools</h3>
+          <p>
+            <strong>The University of Texas at Austin</strong> — M.S. Marketing (’25)<br />
+            <strong>Southwestern University</strong> — B.A. Business, Communication Studies, Political Science (’23)
+          </p>
+          <p>
+            Tools: SQL, Python, R, BigQuery, GA4, Figma, Adobe Creative Suite, After Effects
+          </p>
+        </section>
+
+        <div class="contact">
+          <p>
+            <a href="mailto:toddalexander1109@gmail.com">toddalexander1109@gmail.com</a> ·
+            <a href="tel:+17036556584">(703) 655-6584</a>
+          </p>
+          <p>
+            <a href="https://themarketingplaybook.io" target="_blank">themarketingplaybook.io</a>
+          </p>
+        </div>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
 </html>
