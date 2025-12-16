@@ -33,10 +33,52 @@
         --max: 900px;
       }
 
+      /* ===== MINI NAV (same markup as stage) ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .mini-nav a,
+      .mini-nav-btn {
+        color: rgba(255,255,255,0.90);
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        cursor: pointer;
+
+        padding: 9px 12px;
+        border-radius: 999px;
+
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .mini-nav a:hover,
+      .mini-nav-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
       /* ===== LAYOUT ===== */
       .wrap {
         min-height: 100%;
-        padding: 48px 18px 80px;
+        padding: 34px 18px 80px; /* reduced because nav adds top padding */
         display: flex;
         justify-content: center;
       }
@@ -143,18 +185,10 @@
         color: var(--muted);
       }
 
-      li {
-        margin-bottom: 8px;
-      }
+      li { margin-bottom: 8px; }
 
-      a {
-        color: #7dd3fc;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
+      a { color: #7dd3fc; text-decoration: none; }
+      a:hover { text-decoration: underline; }
 
       /* ===== CONTACT ===== */
       .contact {
@@ -177,33 +211,37 @@
 
       /* ===== RESPONSIVE ===== */
       @media (max-width: 800px) {
-        .profile {
-          flex-direction: column;
-          text-align: center;
-        }
+        .profile { flex-direction: column; text-align: center; }
+        .profile img { width: 140px; height: 140px; }
+        .topbar { flex-direction: column; align-items: flex-start; }
+      }
 
-        .profile img {
-          width: 140px;
-          height: 140px;
-        }
-
-        .topbar {
-          flex-direction: column;
-          align-items: flex-start;
+      @media (max-width: 768px) {
+        .mini-nav {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px;
         }
       }
     </style>
   </head>
 
   <body>
+    <!-- Navbar (same structure as stage) -->
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="insights.html?view=analytics">Analytics</a>
+      <a href="insights.html?view=strategy">Strategy</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="index.html">Stage</a>
+    </nav>
+
     <main class="wrap">
       <section class="container">
         <header class="topbar">
           <div>
             <h1>About</h1>
-            <p>
-              Strategy, analytics, and storytelling - grounded in data, built for people.
-            </p>
+            <p>Strategy, analytics, and storytelling - grounded in data, built for people.</p>
           </div>
           <a class="home-link" href="index.html">Back to Home</a>
         </header>
@@ -212,9 +250,7 @@
           <img src="assets/headshot.jpg" alt="Todd Dearborn" />
           <div>
             <h2>Todd Dearborn</h2>
-            <p class="tagline">
-              Translating data into stories that connect, engage, and convert.
-            </p>
+            <p class="tagline">Translating data into stories that connect, engage, and convert.</p>
           </div>
         </section>
 
@@ -258,9 +294,7 @@
             <strong>The University of Texas at Austin</strong> - M.S. Marketing (’25)<br />
             <strong>Southwestern University</strong> - B.A. Business, Communication Studies, Political Science (’23)
           </p>
-          <p>
-            Tools: SQL, Python, R, BigQuery, GA4, Figma, Adobe Creative Suite, After Effects
-          </p>
+          <p>Tools: SQL, Python, R, BigQuery, GA4, Figma, Adobe Creative Suite, After Effects</p>
         </section>
 
         <div class="contact">
@@ -269,7 +303,7 @@
             <a href="tel:+17036556584">(703) 655-6584</a>
           </p>
           <p>
-            <a href="https://themarketingplaybook.io" target="_blank">themarketingplaybook.io</a>
+            <a href="https://themarketingplaybook.io" target="_blank" rel="noreferrer">themarketingplaybook.io</a>
           </p>
         </div>
 

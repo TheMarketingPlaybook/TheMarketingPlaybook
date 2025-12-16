@@ -356,7 +356,7 @@ body {
     background-position: center bottom;
   }
 
-  .switch.analytics,
+  .switch.analytics { left: 34%; }
   .switch.strategy,
   .switch.portfolio,
   .switch.about {
