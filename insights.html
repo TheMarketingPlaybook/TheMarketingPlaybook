@@ -33,10 +33,52 @@
         --max: 1100px;
       }
 
+      /* ===== MINI NAV (same markup as stage) ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
+
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .mini-nav a,
+      .mini-nav-btn {
+        color: rgba(255,255,255,0.90);
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        cursor: pointer;
+
+        padding: 9px 12px;
+        border-radius: 999px;
+
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .mini-nav a:hover,
+      .mini-nav-btn:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
       /* ===== PAGE LAYOUT ===== */
       .wrap {
         min-height: 100%;
-        padding: 48px 18px 80px;
+        padding: 34px 18px 80px; /* slightly reduced because nav is now on top */
         display: flex;
         justify-content: center;
       }
@@ -267,10 +309,27 @@
         .controls { gap: 10px; }
         .search { min-width: 100%; }
       }
+
+      @media (max-width: 768px) {
+        .mini-nav {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <!-- Navbar (same structure as stage) -->
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="insights.html?view=analytics">Analytics</a>
+      <a href="insights.html?view=strategy">Strategy</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="about.html">About</a>
+      <a href="index.html">Stage</a>
+    </nav>
+
     <main class="wrap">
       <section class="container">
         <header class="topbar">
@@ -281,7 +340,6 @@
             </p>
           </div>
 
-          <!-- Update href to your actual homepage -->
           <a class="home-link" href="index.html">Back to Home</a>
         </header>
 
@@ -308,14 +366,6 @@
     </main>
 
     <script>
-      /**
-       * CONTENT MODEL
-       * - category: "strategy" | "analytics"
-       * - href: link to your full article page (e.g., ./articles/mattress-mack.html)
-       * - image: optional thumbnail; leave empty string to use fallback
-       * - date: ISO or readable
-       * - tags: array of keywords for search
-       */
       const ARTICLES = [
         {
           title: "Mattress Mack: Local Moat, National Spotlight",
@@ -359,17 +409,14 @@
         }
       ];
 
-      // ---- STATE ----
       let currentView = "all";
       let searchTerm = "";
 
-      // ---- ELEMENTS ----
       const gridEl = document.getElementById("grid");
       const emptyEl = document.getElementById("empty");
       const searchInput = document.getElementById("searchInput");
       const tabButtons = Array.from(document.querySelectorAll(".tab"));
 
-      // ---- HELPERS ----
       function normalize(str) {
         return (str || "").toString().toLowerCase().trim();
       }
@@ -391,10 +438,8 @@
       }
 
       function formatDate(dateStr) {
-        // Accepts ISO or readable. If ISO, format nicely.
         const iso = /^\d{4}-\d{2}-\d{2}$/.test(dateStr);
         if (!iso) return dateStr;
-
         const d = new Date(dateStr + "T00:00:00");
         return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" });
       }
@@ -434,8 +479,7 @@
           `;
         }).join("");
 
-        const isEmpty = filtered.length === 0;
-        emptyEl.style.display = isEmpty ? "block" : "none";
+        emptyEl.style.display = filtered.length === 0 ? "block" : "none";
       }
 
       function setActiveTab(view) {
@@ -450,7 +494,6 @@
         setActiveTab(view);
         render();
 
-        // Maintain view in URL so homepage can deep-link to presets
         const url = new URL(window.location.href);
         url.searchParams.set("view", view);
         if (pushState) window.history.replaceState({}, "", url.toString());
@@ -463,7 +506,6 @@
         return "all";
       }
 
-      // ---- EVENTS ----
       tabButtons.forEach(btn => {
         btn.addEventListener("click", () => setView(btn.dataset.view));
       });
@@ -473,7 +515,6 @@
         render();
       });
 
-      // ---- INIT ----
       const preset = readPresetFromURL();
       setView(preset, { pushState: false });
       render();
