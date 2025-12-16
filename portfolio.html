@@ -377,7 +377,7 @@
           <div class="hero-grid">
             <div class="hero-media">
               <!-- Update extension if your file is .mp4 / .webm -->
-              <video controls preload="metadata" poster="">
+              <video id="portfolioVideo" controls preload="none" poster="./assets/portfolio-showcase-thumb.png">
                 <source src="./assets/portfolio-showcase.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
@@ -517,5 +517,20 @@
         <p class="footerline">© The Marketing Playbook</p>
       </section>
     </main>
+
+    <script>
+      const portfolioVideo = document.getElementById("portfolioVideo");
+
+      if (portfolioVideo) {
+        portfolioVideo.addEventListener(
+         "play",
+         () => {
+            portfolioVideo.volume = 0.5;
+         },
+        { once: true }
+       );
+      }
+    </script>
+
   </body>
 </html>
