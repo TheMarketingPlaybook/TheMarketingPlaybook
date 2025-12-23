@@ -1,74 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pirates Were Marketing Pioneers — The Marketing Playbook</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
-<body class="content-page">
-  <!-- Navbar -->
-  <nav>
-    <ul class="navbar-container">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/blog.html">The Blog</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/about.html">About Todd</a></li>
-      <li><a href="/contact.html">Contact Me</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pirates Were Marketing Pioneers | The Marketing Playbook</title>
+    <meta
+      name="description"
+      content="All Pirates, even Captain Blackbeard &amp; Jack Sparrow were not evil… just pioneers of modern marketing."
+    />
+    <link rel="icon" href="../assets/favicon.ico" />
 
-  <!-- Article Header -->
-  <header class="hero">
-    <div class="hero-box">
-      <h1 class="title">Pirates Were Marketing Pioneers</h1>
-      <p class="subtitle">All Pirates, even Captain Blackbeard &amp; Jack Sparrow were not evil… just pioneers of modern marketing.</p>
-    </div>
-  </header>
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.65;
+      }
 
-  <!-- Article Content -->
-  <main class="article-container">
-    <h2>Pirate Misconceptions</h2>
-    <p>Tarnished with terror, the pirate legacy is often mentioned among the other most bloodthirsty stains of human history. Yet for pirates, both for better and worse, this was a desired result that took advantage of modern ‘game theory’ through revolutionary marketing techniques.</p>
+      :root{
+        --bg: #0b0b0d;
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --radius-sm: 14px;
+        --max: 860px; /* tighter for reading */
+      }
 
-    <blockquote>“Ironically, despite (Blackbeard’s) ferocious reputation, there are no verified accounts of him actually killing anyone. He generally prevailed by fear alone.”</blockquote>
-    <p>David Ullian, Amherst College</p>
+      /* ===== MINI NAV (matches Insights) ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
 
-    <p>The pirate’s arsenal of marketing techniques provided far more power than their ship’s array of cannons. A consistent and multi-modal approach, predicated on game theory, created a visual story that transformed into the birth of modern marketing, as pirates have been documented as early as 1350 BC. Jack Sparrow, for example, never commits a murder in the “Pirates of the Caribbean” movie series. Most fans chalk this up to Hollywood wanting a PG-13 main character, while in reality it was a historically accurate depiction of the pacifistic nature of pirates.</p>
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 12px;
 
-    <h2>Pirates Game Theory</h2>
-    <p>Game theory is the core principle a pirate ship is run on. The graph below maps out the choices a merchant ship has when it sees a pirate ship (“P-” Result Probability):</p>
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
 
-    <p>The trick, for pirates, is to always show pacifist mercy when plundering merchant ships out in the open ocean. At first glance this does not seem apropos with the pirate mindset, however it is lost upon modern society that their lives were not as fanciful as the Hollywood movie depictions.</p>
-    <p>Pirate crews were marred with disease, margins of plundering were incredibly thin, plus the ship’s budget was extremely volatile due to mother nature and unwanted sea battles with non-compliant merchant ships. Therefore, the only way to be a profitable, game theory pirate captain was to ensure the crew their survival and pay them according to the acquired loot.</p>
-    <p>The alignment of concurrent desires to survive between the pirate and merchant crews formed the necessity for the latter to peacefully surrender so their lives can be assuredly spared. If pirates were always violent, merchant ships would always resist and fight back to save their own lives and the game theory model would collapse.</p>
-    <p>So how did pirates induce merchant ships to surrender while having no verbal communication established? By a consistent action base that is represented through a singularized symbol.</p>
+      .mini-nav a {
+        color: rgba(255,255,255,0.90);
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.2px;
 
-    <h2>Jolly Roger Symbolism</h2>
-    <p>While the Calico Jack is the most famous symbol of the pirate, it was not a strict standard model for visual communication as each crew’s captain singularized their own flag. The personalizing of the flag design also visually immerses the ship into the entrancingly wild story of each pirate crew’s adventures with their respective captain.</p>
-    <p>Visually communicating: presence, identity, and desired goals in one symbolic flag, that runs unanimously consistent with the actions of the group, is a key reason the pirate legend was so robust and rapidly spread.</p>
-    <p>Pirate symbolism showcases how crucial it is to have a goal-structured approach when creating any identity or messaging for a brand. Fully understanding any goal also entails both mathematical reasoning and performance measurements, so there is likely a chance that the desired goal can belong to an already established set of theories and mathematical practices.</p>
-    <p>Scientific connections create the space to find patterns or opportunities that may provide significant advantages when marketing. Lastly, the goal must run deeply consistent with the core historical actions of a brand or firm and must be visually formed for the direct target market to ensure the effectiveness of operational theories.</p>
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        cursor: pointer;
 
-    <h2>Innovating Payrolls</h2>
-    <p>Well if pirate life was so brutal, why would anyone sign up? This reason left pirate captains with no choice but to innovate the payroll system.</p>
-    <p>Working in such a hectic environment meant innovating the system of payrolls to inspire greater effort, no longer would fixed payouts be accepted by the pirate ship workforce. This necessity would result in one of the first instances of commission payrolls being implemented by an employer in human history. This new form of payment motivated the pirates to plunder more effectively, and also ensure their survival, despite treacherous external factors. Merchant ships are captained by contractors, compared to the captain of a pirate ship being the sole owner.</p>
-    <p>Merchant ship workers are paid on a fixed income, regardless if the ship’s cargo is stolen or not. This means pirates have an equally balanced level of desire to survive while plundering as their victims. Therefore, promising the safety of merchant ship workers meant a returned promise of goods and a commission bonus for the pirates. This dynamic nailed down a pacifist surrender by the merchant ships at any moment a Jolly Roger is spotted on the open ocean.</p>
+        padding: 9px 12px;
+        border-radius: 999px;
 
-    <h2>Pirate Marketing Techniques</h2>
-    <p>As a marketer, what are the core takeaways I can use in my profession from this story? Many things! Beyond a fun fact when networking, pirates represent an amalgamation of our modern business strategies by thousands of years in advance.</p>
-    <p>The most important takeaway from the marketing of pirates is how sticking to a singularized identity, innovating employee satisfaction, and combining mathematics with symbolic storytelling is so formidable it rewrote history.</p>
-    <p>At the end of the day, the ability for pirates to take advantage of game theory was only derived due to the adaptation of payrolls and consistent, symbolic storytelling. The refinement of these internal factors created the external environment for a goal-centered approach to grow and then flourish when nourished with mathematical reasoning.</p>
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
 
-    <hr />
+      .mini-nav a:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
 
-    <p><strong>Thanks for reading!</strong></p>
-    <p>If you liked the article, reach out and let me know!</p>
+      /* ===== PAGE LAYOUT ===== */
+      .wrap{
+        min-height: 100%;
+        padding: 34px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
 
-    <p><strong>Todd Dearborn</strong></p>
-    <p><small>Topics: Pirates, Marketing Techniques, Game Theory, Symbolism, Commission Payroll</small></p>
-  </main>
-</body>
+      .container{
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      /* ===== HEADER ===== */
+      .topbar{
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .title-block h1{
+        font-size: clamp(28px, 3vw, 44px);
+        letter-spacing: 0.4px;
+        margin-bottom: 6px;
+      }
+
+      .title-block p{
+        color: var(--muted);
+        max-width: 70ch;
+      }
+
+      .back-link{
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        white-space: nowrap;
+      }
+
+      .back-link:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
+
+      /* ===== ARTICLE SHELL ===== */
+      .article{
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .lede{
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+      }
+
+      .lede .subtitle{
+        color: var(--muted);
+        max-width: 80ch;
+      }
+
+      .article-inner{
+        padding: 22px 22px 26px;
+      }
+
+      /* ===== TYPOGRAPHY ===== */
+      .article h2{
+        font-size: 20px;
+        letter-spacing: 0.2px;
+        margin: 18px 0 10px;
+      }
+
+      .article p{
+        color: rgba(244,244,245,0.90);
+        margin: 0 0 12px;
+      }
+
+      blockquote{
+        margin: 16px 0;
+        padding: 2px 0 2px 16px;
+        border-left: 3px solid rgba(255,255,255,0.22);
+        color: var(--muted);
+        font-style: italic;
+      }
+
+      .article hr{
+        border: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.12);
+        margin: 20px 0 16px;
+      }
+
+      .meta-footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footerline{
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 900px){
+        .topbar{ flex-direction: column; align-items: flex-start; }
+        .back-link{ align-self: flex-start; }
+      }
+
+      @media (max-width: 768px){
+        .mini-nav{ justify-content: flex-start; flex-wrap: wrap; gap: 10px; }
+        .article-inner{ padding: 18px 16px 22px; }
+        .lede{ padding: 16px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar (same structure as Insights) -->
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="../insights.html?view=analytics">Analytics</a>
+      <a href="../insights.html?view=strategy">Strategy</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html">Stage</a>
+    </nav>
+
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>Pirates Were Marketing Pioneers</h1>
+            <p>All Pirates, even Captain Blackbeard &amp; Jack Sparrow were not evil… just pioneers of modern marketing.</p>
+          </div>
+
+          <a class="back-link" href="../insights.html?view=strategy">Back to Insights</a>
+        </header>
+
+        <article class="article" aria-label="Article">
+          <div class="lede">
+            <p class="subtitle">
+              All Pirates, even Captain Blackbeard &amp; Jack Sparrow were not evil… just pioneers of modern marketing.
+            </p>
+          </div>
+
+          <div class="article-inner">
+            <h2>Pirate Misconceptions</h2>
+            <p>Tarnished with terror, the pirate legacy is often mentioned among the other most bloodthirsty stains of human history. Yet for pirates, both for better and worse, this was a desired result that took advantage of modern ‘game theory’ through revolutionary marketing techniques.</p>
+
+            <blockquote>“Ironically, despite (Blackbeard’s) ferocious reputation, there are no verified accounts of him actually killing anyone. He generally prevailed by fear alone.”</blockquote>
+            <p>David Ullian, Amherst College</p>
+
+            <p>The pirate’s arsenal of marketing techniques provided far more power than their ship’s array of cannons. A consistent and multi-modal approach, predicated on game theory, created a visual story that transformed into the birth of modern marketing, as pirates have been documented as early as 1350 BC. Jack Sparrow, for example, never commits a murder in the “Pirates of the Caribbean” movie series. Most fans chalk this up to Hollywood wanting a PG-13 main character, while in reality it was a historically accurate depiction of the pacifistic nature of pirates.</p>
+
+            <h2>Pirates Game Theory</h2>
+            <p>Game theory is the core principle a pirate ship is run on. The graph below maps out the choices a merchant ship has when it sees a pirate ship (“P-” Result Probability):</p>
+
+            <p>The trick, for pirates, is to always show pacifist mercy when plundering merchant ships out in the open ocean. At first glance this does not seem apropos with the pirate mindset, however it is lost upon modern society that their lives were not as fanciful as the Hollywood movie depictions.</p>
+            <p>Pirate crews were marred with disease, margins of plundering were incredibly thin, plus the ship’s budget was extremely volatile due to mother nature and unwanted sea battles with non-compliant merchant ships. Therefore, the only way to be a profitable, game theory pirate captain was to ensure the crew their survival and pay them according to the acquired loot.</p>
+            <p>The alignment of concurrent desires to survive between the pirate and merchant crews formed the necessity for the latter to peacefully surrender so their lives can be assuredly spared. If pirates were always violent, merchant ships would always resist and fight back to save their own lives and the game theory model would collapse.</p>
+            <p>So how did pirates induce merchant ships to surrender while having no verbal communication established? By a consistent action base that is represented through a singularized symbol.</p>
+
+            <h2>Jolly Roger Symbolism</h2>
+            <p>While the Calico Jack is the most famous symbol of the pirate, it was not a strict standard model for visual communication as each crew’s captain singularized their own flag. The personalizing of the flag design also visually immerses the ship into the entrancingly wild story of each pirate crew’s adventures with their respective captain.</p>
+            <p>Visually communicating: presence, identity, and desired goals in one symbolic flag, that runs unanimously consistent with the actions of the group, is a key reason the pirate legend was so robust and rapidly spread.</p>
+            <p>Pirate symbolism showcases how crucial it is to have a goal-structured approach when creating any identity or messaging for a brand. Fully understanding any goal also entails both mathematical reasoning and performance measurements, so there is likely a chance that the desired goal can belong to an already established set of theories and mathematical practices.</p>
+            <p>Scientific connections create the space to find patterns or opportunities that may provide significant advantages when marketing. Lastly, the goal must run deeply consistent with the core historical actions of a brand or firm and must be visually formed for the direct target market to ensure the effectiveness of operational theories.</p>
+
+            <h2>Innovating Payrolls</h2>
+            <p>Well if pirate life was so brutal, why would anyone sign up? This reason left pirate captains with no choice but to innovate the payroll system.</p>
+            <p>Working in such a hectic environment meant innovating the system of payrolls to inspire greater effort, no longer would fixed payouts be accepted by the pirate ship workforce. This necessity would result in one of the first instances of commission payrolls being implemented by an employer in human history. This new form of payment motivated the pirates to plunder more effectively, and also ensure their survival, despite treacherous external factors. Merchant ships are captained by contractors, compared to the captain of a pirate ship being the sole owner.</p>
+            <p>Merchant ship workers are paid on a fixed income, regardless if the ship’s cargo is stolen or not. This means pirates have an equally balanced level of desire to survive while plundering as their victims. Therefore, promising the safety of merchant ship workers meant a returned promise of goods and a commission bonus for the pirates. This dynamic nailed down a pacifist surrender by the merchant ships at any moment a Jolly Roger is spotted on the open ocean.</p>
+
+            <h2>Pirate Marketing Techniques</h2>
+            <p>As a marketer, what are the core takeaways I can use in my profession from this story? Many things! Beyond a fun fact when networking, pirates represent an amalgamation of our modern business strategies by thousands of years in advance.</p>
+            <p>The most important takeaway from the marketing of pirates is how sticking to a singularized identity, innovating employee satisfaction, and combining mathematics with symbolic storytelling is so formidable it rewrote history.</p>
+            <p>At the end of the day, the ability for pirates to take advantage of game theory was only derived due to the adaptation of payrolls and consistent, symbolic storytelling. The refinement of these internal factors created the external environment for a goal-centered approach to grow and then flourish when nourished with mathematical reasoning.</p>
+
+            <hr />
+
+            <p><strong>Thanks for reading!</strong></p>
+            <p>If you liked the article, reach out and let me know!</p>
+
+            <p><strong>Todd Dearborn</strong></p>
+            <p class="meta-footer"><small>Topics: Pirates, Marketing Techniques, Game Theory, Symbolism, Commission Payroll</small></p>
+          </div>
+        </article>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
 </html>
