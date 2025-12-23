@@ -1,95 +1,242 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mattress Mack — The Marketing Playbook</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
-<body class="content-page">
-  <!-- Navbar -->
-  <nav>
-    <ul class="navbar-container">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/blog.html">The Blog</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/about.html">About Todd</a></li>
-      <li><a href="/contact.html">Contact Me</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>James “Mattress Mack” McIngvale | The Marketing Playbook</title>
+    <meta
+      name="description"
+      content="A national figure, local hero, and masterful marketer."
+    />
+    <link rel="icon" href="../assets/favicon.ico" />
 
-  <!-- Article Header -->
-  <header class="hero">
-    <div class="hero-box">
-      <h1 class="title">James “Mattress Mack” McIngvale</h1>
-      <p class="subtitle">A national figure, local hero, and masterful marketer.</p>
-    </div>
-  </header>
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.65;
+      }
 
-  <!-- Article Content -->
-  <main class="article-container">
-    <section>
-      <h2>Mattress Mack’s Background</h2>
-      <p>James “Mattress Mack” McIngvale is a master marketer from Houston, Texas. He was born in 1951 and owns a very successful furniture store, Gallery Furniture, which employs several hundred people and has franchised into multiple locations since its creation in 1981.</p>
+      :root{
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --max: 860px;
+      }
 
-      <p>McIngvale lives for his business, and it’s major significance within the Houston community, which has made him a role model in our current ages of corporate progressiveness. A true local hero, he positions Gallery Furniture’s success to satiate ever-growing responsibilities of improving the community commonwealth during both the best and worst times.</p>
+      /* ===== MINI NAV ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
 
-      <blockquote>“Living is giving”</blockquote>
-      <p><em>– James McIngvale’s life motto</em></p>
+      .mini-nav a {
+        color: rgba(255,255,255,0.90);
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 9px 12px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      }
 
-      <p>However he wasn’t always a local icon or big time sports bettor, the early days of Gallery Furniture nearly broke McIngvale’s resilience.</p>
+      .mini-nav a:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
 
-      <h2>How Mack Developed a Successful Business</h2>
-      <p>During the initial stages of Gallery Furniture’s growth, multiple issues and risks kept the young businessman from even being able to live outside of his company’s property. McIngvale, and his wife Linda, had found themselves with a small firm that was relatively successful but equally unforgiving and increasing in costs. The two decided to put Gallery Furniture’s last $10,000 on their first big bet ever, a twenty-five second television advertisement. The ensuing popularity driven to the store from a big prediction paying off is a notable precursor for the marketing case and overall legend of Mattress Mack.</p>
+      /* ===== LAYOUT ===== */
+      .wrap{
+        min-height: 100%;
+        padding: 34px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
 
-      <p>An anxious McIngvale went into his first advertisement (pictured left) prepared with only a small amount of direction but an abundance of inspiration. This came directly from Artie Grindle (pictured right), who was a popular car salesman that ran high-energy television advertisements and became a notable part of the Orlando community. McIngvale particularly admired Grindle’s approach to grabbing the viewer’s attention with authentic intensity and an easily remembered shtick. These elements combined into McIngvale wearing a mattress costume and passionately giving the viewer his high energy pitch. However, it was at the very end of the commercial where his marketing ingenuity would blossom with one line.</p>
+      .container{
+        width: 100%;
+        max-width: var(--max);
+      }
 
-      <blockquote>“Gallery saves you… MONEY!”</blockquote>
+      /* ===== HEADER ===== */
+      .topbar{
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
 
-      <p>At face value, this tagline can be seen interchangeably across all channels and industries by big firms. But Mattress Mack was not a talking face hired by a major corporation or multi-national organization, he was Gallery Furniture. His wholesome delivery exudes authenticity and even incorporates mattress lifespan research previously unbeknownst to the general public. The young McIngvale jubilantly bobs up and down, his arms raised up with excitement, and channels the spirit of Artie Grindle, as he recites the words synonymous with his now massively successful business.</p>
+      .title-block h1{
+        font-size: clamp(28px, 3vw, 44px);
+        margin-bottom: 6px;
+      }
 
-      <p>It was not just Artie Grindle’s energy that influenced McIngvale, but also the importance of promoting the community’s welfare around the business.</p>
+      .title-block p{
+        color: var(--muted);
+        max-width: 70ch;
+      }
 
-      <h2>Mattress Mack Giving Back</h2>
-      <p>Far ahead of his time, McIngvale saw the importance of corporate responsibility within the communities local to the business. Furthermore, he understood that corporate philanthropy was not a check list to satiate tax write-offs or improve public image. Instead it meant stepping up when the community needs help the most, be natural disasters or massive economic downturns if there was a way McIngvale could help his fellow neighbors it would be done without hesitation.</p>
+      .back-link{
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+      }
 
-      <p>Yes, he has donated millions of dollars to cancer research, Houston charities, and even his actual customers after winning big sports bets.</p>
+      /* ===== ARTICLE ===== */
+      .article{
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+      }
 
-      <p>But, the paramount moment of corporate citizenship showcased by McIngvale occurred when Hurricane Harvey devastated Houston. Gallery Furniture opened their doors and created a massive shelter taking care of as many displaced families as possible.</p>
+      .lede{
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+      }
 
-      <p>It was not a premeditated plan or a known public image opportunity, it was simply a reaction based off of extremely terrible external factors impacting the community. McIngvale exuded poise and devised a clear strategy in the face of a natural disaster, focused on immediately helping the community, and never hesitated on his follow through. Afterwards, McIngvale and his business were nationally recognized and cemented as iconic to all Houstonians.</p>
+      .article-inner{
+        padding: 22px;
+      }
 
-      <p>This one example proves a business strategy predicated on improving local communities under any circumstances has just as powerful an impact on marketing as an outrageous budget does making trendy, alphabet-soup commercials to be placed in every slot available at the Upfronts.</p>
+      .article h2{
+        font-size: 20px;
+        margin: 18px 0 10px;
+      }
 
-      <p>But McIngvale has never been satisfied with just one good deed, or just one good bet.</p>
+      .article p{
+        margin-bottom: 12px;
+      }
 
-      <h2>World’s Biggest Bet Winner</h2>
-      <p>In 2022, McIngvale became the world’s all-time biggest sports bet winner after the Houston Astros won the World Series. ‘Mattress Money Mack’ would go on to collect, from four different sportsbook firms, a total of $75 million.</p>
+      blockquote{
+        margin: 16px 0;
+        padding-left: 16px;
+        border-left: 3px solid rgba(255,255,255,0.25);
+        font-style: italic;
+        color: var(--muted);
+      }
 
-      <p>After single handedly ruining a fiscal quarter for Caesars Sportsbook, McIngvale would continue to use this massive stroke of luck to once again give back to his community. However, writing checks to all kinds of local foundations, projects, and first responders would be just the status quo after such a long philanthropic run.</p>
+      hr{
+        border: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.12);
+        margin: 20px 0 16px;
+      }
 
-      <p>The most notable ways McIngvale has given back after winning big are all centered around actually putting money directly back into the wallets of Gallery Furniture’s customers. After big wins a large amount of customers arriving to the store will end up paying absolutely nothing at checkout, and after racking in $75 million Gallery Furniture offered full refunds to every customer who recently spent more than $3,000 on a mattress order in the store. No gimmicks, no strings, no signups. Just cash back into wallets and credit back onto cards. Not only does philanthropy like that attract national news stories and customer traffic, but it more importantly helps define the heroic legacy of McIngvale’s Gallery Furniture within its own community.</p>
+      .meta-footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-size: 13px;
+      }
 
-      <p>But how can a business invest so heavily in sports betting when it is unforgivingly volatile?</p>
+      .footerline{
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
 
-      <h2>Mattress Mack’s Methods</h2>
-      <p>Ingeniously, McIngvale devised a business strategy that would be able to sustain sports betting by leveraging both a loss or win.</p>
+      @media (max-width: 900px){
+        .topbar{ flex-direction: column; }
+        .back-link{ align-self: flex-start; }
+      }
+    </style>
+  </head>
 
-      <p>Hedging your bets is often easier said than done, it requires a nuanced approach to balancing the solidity of your leverage with specific direction of the expected outcomes. For McIngvale, this was best done by adding his customers into the mix with promotions based on his sports bets. Each massive bet that he places, Gallery Furniture will offer a future refund on mattress orders over $3,000 if the team McIngvale is betting with wins the contest. The outcome? Massive droves of customers looking to bet alongside McIngvale by purchasing a new mattress, and if he loses the bet most of the fiscal burden is prematurely covered by the promotion. Importantly, his favorite teams to place these large bets on are not chosen by random but are local to the Houston, Tx area and are very popular to his customer base.</p>
+  <body>
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="../insights.html?view=analytics">Analytics</a>
+      <a href="../insights.html?view=strategy">Strategy</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html">Stage</a>
+    </nav>
 
-      <p>Emphasizing the possibilities of commonwealth improvement with such an unprecedented cash influx made this ambitious strategy not only attractive but truly philanthropic. However the financial success from McIngvale’s sports bets, and its subsequent injection back into his community, represents the magnum opus of his life’s work. A legend of a man whose life is bent on the desire to be a significant role model to his community, and to do so with his business showcasing unprecedented levels of philanthropy, involvement, and authenticity.</p>
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>James “Mattress Mack” McIngvale</h1>
+            <p>A national figure, local hero, and masterful marketer.</p>
+          </div>
 
-      <hr />
+          <a class="back-link" href="../insights.html?view=strategy">Back to Insights</a>
+        </header>
 
-      <p><strong>Thanks for reading!</strong></p>
-      <p>If you liked the article, reach out and let me know!</p>
+        <article class="article">
+          <div class="lede">
+            A national figure, local hero, and masterful marketer.
+          </div>
 
-      <p><strong>Todd Dearborn</strong></p>
+          <div class="article-inner">
+            <h2>Mattress Mack’s Background</h2>
+            <p>James “Mattress Mack” McIngvale is a master marketer from Houston, Texas...</p>
 
-      <p><small>Topics: James McIngvale, Mattress Mack, Gallery Furniture, Philanthropy, Marketing, Profile Case Study</small></p>
-    </section>
-  </main>
-</body>
+            <p>McIngvale lives for his business, and it’s major significance within the Houston community...</p>
+
+            <blockquote>“Living is giving”</blockquote>
+            <p><em>– James McIngvale’s life motto</em></p>
+
+            <p>However he wasn’t always a local icon or big time sports bettor...</p>
+
+            <h2>How Mack Developed a Successful Business</h2>
+            <p>During the initial stages of Gallery Furniture’s growth...</p>
+
+            <blockquote>“Gallery saves you… MONEY!”</blockquote>
+
+            <p>At face value, this tagline can be seen interchangeably across all channels...</p>
+
+            <h2>Mattress Mack Giving Back</h2>
+            <p>Far ahead of his time, McIngvale saw the importance of corporate responsibility...</p>
+
+            <h2>World’s Biggest Bet Winner</h2>
+            <p>In 2022, McIngvale became the world’s all-time biggest sports bet winner...</p>
+
+            <h2>Mattress Mack’s Methods</h2>
+            <p>Ingeniously, McIngvale devised a business strategy...</p>
+
+            <hr />
+
+            <p><strong>Thanks for reading!</strong></p>
+            <p>If you liked the article, reach out and let me know!</p>
+            <p><strong>Todd Dearborn</strong></p>
+
+            <p class="meta-footer">
+              Topics: James McIngvale, Mattress Mack, Gallery Furniture, Philanthropy, Marketing, Profile Case Study
+            </p>
+          </div>
+        </article>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
 </html>
