@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Attribution Reality Check: Causality, Not Correlation | The Marketing Playbook</title>
+    <meta
+      name="description"
+      content="What to trust, what to ignore, and how to set up tests that withstand executive scrutiny."
+    />
+    <link rel="icon" href="../assets/favicon.ico" />
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+
+      body{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.65;
+      }
+
+      :root{
+        --panel: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.12);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --max: 860px;
+      }
+
+      .mini-nav{
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .mini-nav a{
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 9px 12px;
+        border-radius: 999px;
+      }
+
+      .wrap{
+        min-height: 100%;
+        padding: 34px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container{
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      .topbar{
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .title-block h1{
+        font-size: clamp(28px, 3vw, 44px);
+        margin-bottom: 6px;
+      }
+
+      .title-block p{
+        color: var(--muted);
+        max-width: 70ch;
+      }
+
+      .back-link{
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+      }
+
+      .article{
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .lede{
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+      }
+
+      .article-inner{
+        padding: 22px 22px 26px;
+      }
+
+      .article h2{
+        font-size: 20px;
+        margin: 18px 0 10px;
+      }
+
+      .article p{
+        margin-bottom: 12px;
+      }
+
+      hr{
+        border: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.12);
+        margin: 20px 0 16px;
+      }
+
+      .meta-footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footerline{
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="mini-nav">
+      <a href="../insights.html?view=analytics">Analytics</a>
+      <a href="../insights.html?view=strategy">Strategy</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html">Stage</a>
+    </nav>
+
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>Attribution Reality Check: Causality, Not Correlation</h1>
+            <p>What to trust, what to ignore, and how to set up tests that withstand executive scrutiny.</p>
+          </div>
+
+          <a class="back-link" href="../insights.html?view=analytics">Back to Insights</a>
+        </header>
+
+        <article class="article">
+          <div class="lede">
+            Most attribution debates exist because teams confuse movement with impact.
+          </div>
+
+          <div class="article-inner">
+            <h2>Why Attribution Breaks Trust</h2>
+            <p>Attribution is meant to answer a simple question. Did this marketing action cause a meaningful change in outcomes. In practice, it often does the opposite.</p>
+
+            <p>Dashboards light up. Channels take credit. Slides get approved. But when budgets shift or conditions change, results fail to repeat. Confidence erodes quickly.</p>
+
+            <p>The root problem is not tooling. It is logic.</p>
+
+            <h2>Correlation Is Comfortable</h2>
+            <p>Correlation feels intuitive. Spend goes up. Revenue goes up. The story writes itself.</p>
+
+            <p>The problem is that markets move constantly. Seasonality, demand shocks, competitor behavior, and product changes all push results in the same direction. Correlation rewards whoever happened to be active at the time.</p>
+
+            <p>This is how teams overfund channels that ride momentum and underfund those that actually create it.</p>
+
+            <h2>The Question You Actually Need to Answer</h2>
+            <p>Causality asks a harder question. What would have happened if we did nothing.</p>
+
+            <p>This counterfactual is uncomfortable because it removes certainty. It forces teams to isolate effects and accept that some activity is redundant.</p>
+
+            <p>But it is the only way to understand true impact.</p>
+
+            <h2>Why Executives Stop Believing the Data</h2>
+            <p>Leaders are pattern detectors. They quickly notice when results fail to generalize.</p>
+
+            <p>When attribution models over promise and under deliver, executives disengage. Decisions revert to intuition. Analytics becomes advisory instead of authoritative.</p>
+
+            <p>Trust is lost not because numbers are wrong, but because they are fragile.</p>
+
+            <h2>Designing Tests That Hold Up</h2>
+            <p>Strong attribution systems are built on restraint. They limit scope. They isolate variables. They accept that some questions cannot be answered quickly.</p>
+
+            <p>Rather than assigning credit everywhere, they focus on identifying lift where it actually exists.</p>
+
+            <p>The goal is not precision. The goal is confidence.</p>
+
+            <h2>Analytics as a Decision Filter</h2>
+            <p>The best analytics teams do not try to explain everything. They help organizations avoid bad decisions.</p>
+
+            <p>Causal thinking turns attribution into a filter. It removes noise. It challenges assumptions. It protects capital.</p>
+
+            <p>When correlation tells you what moved, causality tells you what mattered.</p>
+
+            <hr />
+
+            <p><strong>Thanks for reading!</strong></p>
+            <p>If this reframed how you think about attribution, explore the other analytics pieces above.</p>
+
+            <p><strong>Todd Dearborn</strong></p>
+            <p class="meta-footer"><small>Topics: Attribution, Causal Inference, Incrementality, Marketing Measurement, Analytics Strategy</small></p>
+          </div>
+        </article>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
+</html>
