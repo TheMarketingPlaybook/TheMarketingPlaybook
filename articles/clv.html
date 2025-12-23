@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLV as a Targeting System (Not a Dashboard) | The Marketing Playbook</title>
+    <meta
+      name="description"
+      content="Why CLV only becomes valuable when it actively shapes who you acquire, how you onboard, and where you allocate spend."
+    />
+    <link rel="icon" href="../assets/favicon.ico" />
+
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+
+      body{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.65;
+      }
+
+      :root{
+        --panel: rgba(255,255,255,0.06);
+        --border: rgba(255,255,255,0.12);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --max: 860px;
+      }
+
+      .mini-nav{
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
+
+      .mini-nav a{
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 9px 12px;
+        border-radius: 999px;
+      }
+
+      .wrap{
+        min-height: 100%;
+        padding: 34px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .container{
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      .topbar{
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .title-block h1{
+        font-size: clamp(28px, 3vw, 44px);
+        margin-bottom: 6px;
+      }
+
+      .title-block p{
+        color: var(--muted);
+        max-width: 70ch;
+      }
+
+      .back-link{
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+      }
+
+      .article{
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .lede{
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+      }
+
+      .article-inner{
+        padding: 22px 22px 26px;
+      }
+
+      .article h2{
+        font-size: 20px;
+        margin: 18px 0 10px;
+      }
+
+      .article p{
+        margin-bottom: 12px;
+      }
+
+      hr{
+        border: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.12);
+        margin: 20px 0 16px;
+      }
+
+      .meta-footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footerline{
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="mini-nav">
+      <a href="../insights.html?view=analytics">Analytics</a>
+      <a href="../insights.html?view=strategy">Strategy</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html">Stage</a>
+    </nav>
+
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>CLV as a Targeting System (Not a Dashboard)</h1>
+            <p>A practical way to turn lifetime value into a decision engine instead of a reporting artifact.</p>
+          </div>
+
+          <a class="back-link" href="../insights.html?view=analytics">Back to Insights</a>
+        </header>
+
+        <article class="article">
+          <div class="lede">
+            Most teams treat CLV as something to observe. The real advantage comes when you let it decide.
+          </div>
+
+          <div class="article-inner">
+            <h2>The Problem With CLV Dashboards</h2>
+            <p>Customer Lifetime Value is one of the most respected metrics in modern marketing. It is also one of the most misused. In many organizations, CLV lives in a slide deck, a dashboard, or a quarterly report. It is reviewed, discussed, and then quietly ignored when real decisions are made.</p>
+
+            <p>Acquisition teams still optimize for volume. Creative teams still chase click through rate. Product teams still focus on engagement metrics that feel good but say very little about long term value. In these environments, CLV becomes a passive scorecard rather than an active input.</p>
+
+            <p>If CLV does not change what you do tomorrow, it is not functioning as a system. It is just decoration.</p>
+
+            <h2>Why the Image Matters</h2>
+            <p>The image above tells the story most dashboards miss. CLV is not a single number. It is the intersection of behavior, time, and money. Each segment of the visual represents a different force shaping value. None of them work in isolation.</p>
+
+            <p>When teams focus only on outputs, they miss the mechanics underneath. The real power of CLV is not in knowing who your best customers are. It is in identifying who is becoming one.</p>
+
+            <h2>Targeting Happens Earlier Than You Think</h2>
+            <p>Most targeting decisions happen before a user ever becomes profitable. Who you acquire. How you onboard them. What you show them first. These moments shape the entire lifetime trajectory.</p>
+
+            <p>An effective CLV system operates in this early window. It looks at signals that indicate intent, not just outcomes. It uses those signals to prioritize spend, tailor onboarding, and suppress activity that looks busy but creates little value.</p>
+
+            <p>In this way, CLV becomes less about prediction and more about guidance. It tells you where to lean in and where to pull back.</p>
+
+            <h2>From Measurement to Control</h2>
+            <p>The shift from dashboard to system is a shift from observation to control. Instead of asking how much value a segment generated, you ask how value is being created and whether it can be influenced.</p>
+
+            <p>This mindset changes how teams work together. Marketing stops chasing cheap traffic. Product stops optimizing for hollow engagement. Finance gains a forward looking view of growth instead of a rearview mirror.</p>
+
+            <p>Most importantly, decisions become consistent. Every dollar, offer, and message is evaluated against the same question. Does this increase expected lifetime value?</p>
+
+            <h2>Why This Is an Analytics Problem</h2>
+            <p>This is not a branding exercise or a strategic reframe. It is an analytics problem. Building a CLV system requires modeling behavior, understanding uncertainty, and designing feedback loops that update as users evolve.</p>
+
+            <p>It also requires restraint. Not every user is worth saving. Not every cohort deserves more spend. A mature CLV system is comfortable saying no when the data supports it.</p>
+
+            <p>When analytics teams take ownership of this process, CLV stops being a vanity metric and starts acting like infrastructure.</p>
+
+            <hr />
+
+            <p><strong>Thanks for reading!</strong></p>
+            <p>If this sparked a new way of thinking about CLV, explore some of the other analytics pieces above.</p>
+
+            <p><strong>Todd Dearborn</strong></p>
+            <p class="meta-footer"><small>Topics: Customer Lifetime Value, Targeting, Analytics Systems, Segmentation, Marketing Decision Making</small></p>
+          </div>
+        </article>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
+</html>
