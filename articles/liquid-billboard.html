@@ -1,50 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Liquid Billboard Duality — The Marketing Playbook</title>
-  <link rel="stylesheet" href="../styles.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="assets/favicon.png" type="image/png">
-</head>
-<body class="content-page">
-  <!-- Navbar -->
-  <nav>
-    <ul class="navbar-container">
-      <li><a href="/index.html">Home</a></li>
-      <li><a href="/blog.html">The Blog</a></li>
-      <li><a href="/portfolio.html">Portfolio</a></li>
-      <li><a href="/about.html">About Todd</a></li>
-      <li><a href="/contact.html">Contact Me</a></li>
-    </ul>
-  </nav>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Liquid Billboard Duality | The Marketing Playbook</title>
+    <meta
+      name="description"
+      content="Imagination & Innovation married at the alter of Social Responsibility"
+    />
+    <link rel="icon" href="../assets/favicon.ico" />
 
-  <!-- Article Header -->
-  <header class="hero">
-    <div class="hero-box">
-      <h1 class="title">The Liquid Billboard Duality (Adidas/UGC)</h1>
-      <p class="subtitle">Imagination &amp; Innovation married at the alter of Social Responsibility</p>
-    </div>
-  </header>
+    <style>
+      /* ===== RESET ===== */
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { height: 100%; }
+      body{
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+        background: #0b0b0d;
+        color: #f4f4f5;
+        line-height: 1.65;
+      }
 
-  <!-- Article Content -->
-  <main class="article-container">
-    <h2>Adidas Liquid Billboard</h2>
-    <p>Adidas, Havas Middle East, and Jack Morton Middle East were awarded an ‘Outdoor’ Lion award at the 2022 Cannes Lions International Festival of Creativity for their “Liquid Billboard” campaign. This ambitious advertisement successfully highlighted key social issues and promoted women’s rights and inclusivity. The authentic messaging and stunning creative visuals combined to bring incredulous attention, awareness, and interaction with progressive values, as well as the Adidas brand, within the Middle East and subsequently the whole world.</p>
+      :root{
+        --panel: rgba(255,255,255,0.06);
+        --panel-2: rgba(255,255,255,0.08);
+        --border: rgba(255,255,255,0.12);
+        --border-2: rgba(255,255,255,0.18);
+        --muted: rgba(244,244,245,0.72);
+        --muted-2: rgba(244,244,245,0.55);
+        --shadow: 0 12px 40px rgba(0,0,0,0.45);
+        --radius: 18px;
+        --max: 860px;
+      }
 
-    <h2>Adidas Empowering Women’s Rights</h2>
-    <p>A multi-modal campaign challenging the oppressive tendencies of historical government policy in the Middle East could be seen as too politically volatile, perhaps damaging international contact relationships. However this was of no concern to the Adidas brand becoming strongly affiliated with these social values has tremendously positive effects on brand equity. The brand proposes itself as a helpful platform for social responsibility.</p>
+      /* ===== MINI NAV ===== */
+      .mini-nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(11,11,13,0.72);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255,255,255,0.10);
+      }
 
-    <p>Produced in the UAE, there is also a traditional billboard (Above) that Adidas uses to showcase all those who participate in their other ‘swimmable’ billboard. This campaign’s visual duality showcases exponential growth capabilities for outreach, and is mainly attributed to the cyclical nature of the “Liquid Billboard” encouraging User Generated Content which orbits social change. This is a core reason that Adidas was so successful and promoted inclusivity and women’s rights in an area infamous for doing the opposite. Adidas, Havas Middle East, and Jack Morton have completed a project so socially powerful that their Cannes Lions award is just a nod to the positive impact they have created in the Middle East.</p>
+      .mini-nav a {
+        color: rgba(255,255,255,0.9);
+        text-decoration: none;
+        font-size: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 9px 12px;
+        border-radius: 999px;
+        transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+      }
 
-    <hr />
+      .mini-nav a:hover {
+        transform: translateY(-1px);
+        background: rgba(255,255,255,0.07);
+        border-color: var(--border-2);
+      }
 
-    <p><strong>Thanks for reading!</strong></p>
-    <p>If you liked the article, click like check out some others up top! If you want to leave a comment, just scroll past the ads below!</p>
+      /* ===== LAYOUT ===== */
+      .wrap{
+        min-height: 100%;
+        padding: 34px 18px 80px;
+        display: flex;
+        justify-content: center;
+      }
 
-    <p><strong>Todd Dearborn</strong></p>
-    <p><small>Topics: Adidas, Liquid Billboard, Top Campaigns, Women’s Rights, Equality, Innovation, User Generated Content</small></p>
-  </main>
-</body>
+      .container{
+        width: 100%;
+        max-width: var(--max);
+      }
+
+      /* ===== HEADER ===== */
+      .topbar{
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 14px;
+      }
+
+      .title-block h1{
+        font-size: clamp(28px, 3vw, 44px);
+        margin-bottom: 6px;
+      }
+
+      .title-block p{
+        color: var(--muted);
+        max-width: 70ch;
+      }
+
+      .back-link{
+        align-self: center;
+        text-decoration: none;
+        color: #f4f4f5;
+        border: 1px solid var(--border);
+        background: rgba(255,255,255,0.04);
+        padding: 10px 14px;
+        border-radius: 999px;
+      }
+
+      /* ===== ARTICLE ===== */
+      .article{
+        margin-top: 16px;
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .lede{
+        padding: 18px 22px;
+        border-bottom: 1px solid var(--border);
+        background: rgba(255,255,255,0.03);
+        color: var(--muted);
+      }
+
+      .article-inner{
+        padding: 22px 22px 26px;
+      }
+
+      .article h2{
+        font-size: 20px;
+        margin: 18px 0 10px;
+      }
+
+      .article p{
+        margin-bottom: 12px;
+      }
+
+      hr{
+        border: 0;
+        height: 1px;
+        background: rgba(255,255,255,0.12);
+        margin: 20px 0 16px;
+      }
+
+      .meta-footer{
+        margin-top: 18px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255,255,255,0.10);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footerline{
+        margin-top: 20px;
+        color: var(--muted-2);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      @media (max-width: 900px){
+        .topbar{ flex-direction: column; }
+        .back-link{ align-self: flex-start; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="mini-nav" aria-label="Quick navigation">
+      <a href="../insights.html?view=analytics">Analytics</a>
+      <a href="../insights.html?view=strategy">Strategy</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../about.html">About</a>
+      <a href="../index.html">Stage</a>
+    </nav>
+
+    <main class="wrap">
+      <section class="container">
+        <header class="topbar">
+          <div class="title-block">
+            <h1>The Liquid Billboard Duality (Adidas/UGC)</h1>
+            <p>Imagination &amp; Innovation married at the alter of Social Responsibility</p>
+          </div>
+
+          <a class="back-link" href="../insights.html?view=strategy">Back to Insights</a>
+        </header>
+
+        <article class="article">
+          <div class="lede">
+            Imagination &amp; Innovation married at the alter of Social Responsibility
+          </div>
+
+          <div class="article-inner">
+            <h2>Adidas Liquid Billboard</h2>
+            <p>Adidas, Havas Middle East, and Jack Morton Middle East were awarded an ‘Outdoor’ Lion award at the 2022 Cannes Lions International Festival of Creativity for their “Liquid Billboard” campaign. This ambitious advertisement successfully highlighted key social issues and promoted women’s rights and inclusivity. The authentic messaging and stunning creative visuals combined to bring incredulous attention, awareness, and interaction with progressive values, as well as the Adidas brand, within the Middle East and subsequently the whole world.</p>
+
+            <h2>Adidas Empowering Women’s Rights</h2>
+            <p>A multi-modal campaign challenging the oppressive tendencies of historical government policy in the Middle East could be seen as too politically volatile, perhaps damaging international contact relationships. However this was of no concern to the Adidas brand becoming strongly affiliated with these social values has tremendously positive effects on brand equity. The brand proposes itself as a helpful platform for social responsibility.</p>
+
+            <p>Produced in the UAE, there is also a traditional billboard (Above) that Adidas uses to showcase all those who participate in their other ‘swimmable’ billboard. This campaign’s visual duality showcases exponential growth capabilities for outreach, and is mainly attributed to the cyclical nature of the “Liquid Billboard” encouraging User Generated Content which orbits social change. This is a core reason that Adidas was so successful and promoted inclusivity and women’s rights in an area infamous for doing the opposite. Adidas, Havas Middle East, and Jack Morton have completed a project so socially powerful that their Cannes Lions award is just a nod to the positive impact they have created in the Middle East.</p>
+
+            <hr />
+
+            <p><strong>Thanks for reading!</strong></p>
+            <p>If you liked the article, click like check out some others up top! If you want to leave a comment, just scroll past the ads below!</p>
+
+            <p><strong>Todd Dearborn</strong></p>
+            <p class="meta-footer"><small>Topics: Adidas, Liquid Billboard, Top Campaigns, Women’s Rights, Equality, Innovation, User Generated Content</small></p>
+          </div>
+        </article>
+
+        <p class="footerline">© The Marketing Playbook</p>
+      </section>
+    </main>
+  </body>
 </html>
