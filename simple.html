@@ -74,17 +74,62 @@
       }
 
       /* ===== PAGE LAYOUT ===== */
-      .wrap {
+      .wrap{
+        position: relative;
         min-height: 100%;
-        padding: 28px 18px 80px; /* reduced top padding since nav is now on top */
+        padding: 34px 18px 80px;
         display: flex;
         justify-content: center;
       }
 
-      .container {
+      /* ambient texture outside the reading column */
+      .wrap::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        z-index:0;
+        opacity:0.28;
+
+        background:
+          radial-gradient(circle at 7px 7px,
+            rgba(70,70,70,0.42) 1.9px,
+            rgba(210,210,210,0.08) 3.0px,
+            transparent 4.2px
+          ),
+          linear-gradient(to bottom,
+            rgba(255,255,255,0.03),
+            rgba(0,0,0,0.05)
+          );
+
+        background-size:16px 16px, 100% 100%;
+      }
+
+
+      .container{
         width: 100%;
         max-width: var(--max);
+        position: relative;
+        z-index: 1; /* above texture */
       }
+
+      /* solid mask so texture does not appear behind the reading column */
+      .container::before{
+        content:"";
+        position:absolute;
+        inset:-34px;     /* widen/narrow clean zone here */
+        background: var(--bg);
+        border-radius: 28px;
+        z-index: 0;
+        pointer-events:none;
+      }
+
+      /* ensure content sits above the mask */
+      .container > *{
+        position: relative;
+        z-index: 1;
+      }
+
 
       /* ===== HEADER ===== */
       .topbar {
