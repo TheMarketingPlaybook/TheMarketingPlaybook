@@ -197,7 +197,7 @@
 
       .card {
         grid-column: span 6;
-        background: var(--panel);
+        background: rgba(255,255,255,0.055);
         border: 1px solid var(--border);
         border-radius: var(--radius);
         overflow: hidden;
@@ -209,7 +209,7 @@
 
       .card:hover {
         transform: translateY(-2px);
-        background: var(--panel-2);
+        background: rgba(255,255,255,0.075);
         border-color: var(--border-2);
       }
 
@@ -291,6 +291,52 @@
         text-align: center;
       }
 
+      /* ===== DIMPLE SURFACE (behind cards, not behind text UI) ===== */
+      .card-surface{
+        position: relative;
+        margin-top: 10px;
+        padding: 18px;
+        border-radius: calc(var(--radius) + 8px);
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.06);
+        overflow: hidden;
+      }
+
+      /* texture layer */
+      .card-surface::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        pointer-events:none;
+        opacity: 0.30;
+
+        /* dimpled material: dark grey “pits” with a soft highlight edge */
+        background:
+          radial-gradient(circle at 7px 7px,
+            rgba(70,70,70,0.42) 1.9px,
+            rgba(210,210,210,0.08) 3.0px,
+            transparent 4.2px
+          ),
+          linear-gradient(to bottom,
+            rgba(255,255,255,0.03),
+            rgba(0,0,0,0.05)
+          );
+
+        background-size: 16px 16px, 100% 100%;
+      }
+
+      /* keep actual content above the texture */
+      .card-surface > *{
+        position: relative;
+        z-index: 1;
+      }
+
+      /* optional: reduce intensity on smaller screens */
+      @media (max-width: 900px){
+        .card-surface::before{ opacity: 0.22; }
+      }
+
+
       /* ===== EMPTY STATE ===== */
       .empty {
         margin-top: 18px;
@@ -356,11 +402,12 @@
           </div>
         </div>
 
-        <section id="grid" class="grid" aria-live="polite"></section>
-        <div id="empty" class="empty" style="display:none;">
-          No articles match that filter/search. Try a different view or clear the search box.
-        </div>
-
+        <section class="card-surface">
+          <section id="grid" class="grid" aria-live="polite"></section>
+           <div id="empty" class="empty" style="display:none;"></div>
+            No articles match that filter/search. Try a different view or clear the search box.
+          </div>
+        </section>
         <p class="footerline">© The Marketing Playbook</p>
       </section>
     </main>
