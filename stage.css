@@ -185,7 +185,7 @@ body {
   opacity: 0;
   pointer-events: none;
   z-index: 10;
-  transition: opacity 840ms ease-out;
+  transition: opacity 900ms ease-out;
 }
 
 .blackout.is-on {
