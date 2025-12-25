@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Marketing Playbook – Stage</title>
 
-  <link rel="stylesheet" href="stage.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="./assets/favicon.ico" />
 </head>
 
@@ -197,35 +197,35 @@
     // lock switches during transition
     switches.forEach((btn) => (btn.disabled = true));
 
-    // CLOSE iris (go to pinhole)
     blackout.classList.add("is-on");
 
-    // When iris is closed, swap assets, then open
     setTimeout(() => {
+      // stage color
       if (stageFile) {
         stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
       }
 
+      // switchboard image
       if (boardFile && switchboard) {
         switchboard.style.backgroundImage = `url("./assets/${boardFile}")`;
       }
 
+      // center asset
       if (centerFile) {
         showCenterAsset(centerFile, label, link);
       } else {
         hideCenterAsset();
       }
 
-      // OPEN iris
+      // fade back to scene
       blackout.classList.remove("is-on");
 
-      // unlock switches after the open finishes
+      // unlock switches shortly after
       setTimeout(() => {
         switches.forEach((btn) => (btn.disabled = false));
-      }, 520);
-    }, 520);
+      }, 200);
+    }, 420);
   }
-
 
   // Initial state: no floating asset visible
   hideCenterAsset();
