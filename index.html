@@ -199,32 +199,36 @@
 
     blackout.classList.add("is-on");
 
+    /* wait for fade-to-black to finish */
     setTimeout(() => {
-      // stage color
+
+      // swap stage, board, center
       if (stageFile) {
         stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
       }
 
-      // switchboard image
       if (boardFile && switchboard) {
         switchboard.style.backgroundImage = `url("./assets/${boardFile}")`;
       }
 
-      // center asset
       if (centerFile) {
         showCenterAsset(centerFile, label, link);
       } else {
         hideCenterAsset();
       }
 
-      // fade back to scene
-      blackout.classList.remove("is-on");
-
-      // unlock switches shortly after
+      /* HOLD black briefly before revealing */
       setTimeout(() => {
-        switches.forEach((btn) => (btn.disabled = false));
-      }, 200);
-    }, 420);
+        blackout.classList.remove("is-on");
+
+        /* unlock switches after fade-in starts */
+        setTimeout(() => {
+          switches.forEach((btn) => (btn.disabled = false));
+        }, 300);
+
+      }, 300); // <-- this is the new "hold" time
+
+    }, 840); // <-- must match CSS duration
   }
 
   // Initial state: no floating asset visible

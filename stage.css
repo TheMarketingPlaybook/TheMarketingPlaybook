@@ -185,11 +185,11 @@ body {
   opacity: 0;
   pointer-events: none;
   z-index: 10;
-  transition: opacity 420ms ease-out;
+  transition: opacity 840ms ease-out;
 }
 
 .blackout.is-on {
-  opacity: 0.95;
+  opacity: 1;
 }
 
 .center-click {
