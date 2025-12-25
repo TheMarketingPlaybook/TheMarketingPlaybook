@@ -197,35 +197,35 @@
     // lock switches during transition
     switches.forEach((btn) => (btn.disabled = true));
 
+    // CLOSE iris (go to pinhole)
     blackout.classList.add("is-on");
 
+    // When iris is closed, swap assets, then open
     setTimeout(() => {
-      // stage color
       if (stageFile) {
         stageColor.style.backgroundImage = `url("./assets/${stageFile}")`;
       }
 
-      // switchboard image
       if (boardFile && switchboard) {
         switchboard.style.backgroundImage = `url("./assets/${boardFile}")`;
       }
 
-      // center asset
       if (centerFile) {
         showCenterAsset(centerFile, label, link);
       } else {
         hideCenterAsset();
       }
 
-      // fade back to scene
+      // OPEN iris
       blackout.classList.remove("is-on");
 
-      // unlock switches shortly after
+      // unlock switches after the open finishes
       setTimeout(() => {
         switches.forEach((btn) => (btn.disabled = false));
-      }, 200);
-    }, 420);
+      }, 520);
+    }, 520);
   }
+
 
   // Initial state: no floating asset visible
   hideCenterAsset();
